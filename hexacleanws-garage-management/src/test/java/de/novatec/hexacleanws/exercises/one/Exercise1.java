@@ -6,6 +6,7 @@ import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 import de.novatec.hexacleanws.exercises.Exercises;
+import de.novatec.hexacleanws.garage.management.vehicle.adapter.out.VehicleRepository;
 import de.novatec.hexacleanws.garage.management.vehicle.domain.model.vehicle.Vehicle;
 import de.novatec.hexacleanws.garage.management.vehicle.domain.model.vehicle.Vin;
 import de.novatec.hexacleanws.garage.management.vehicle.domain.service.VehicleService;
@@ -89,10 +90,18 @@ public class Exercise1 extends Exercises {
         assertThat(vehicle).isEqualTo(new Vehicle(vin));
     }
 
-    @Test
+    /*@Test
     void vehicle_service_should_return_a_valid_vehicle() {
         Vin vin = new Vin(VIN);
-        Vehicle vehicle = new VehicleService().getVehicleByVin(vin);
+        Vehicle vehicle = new VehicleService().readVehicle(vin);
+        assertThat(vehicle).isEqualTo(new Vehicle(vin));
+    }*/
+
+    @Test
+    void vehicle_service_should_return_a_valid_vehicle() {
+        //@TODO: Improve with a spy
+        Vin vin = new Vin(VIN);
+        Vehicle vehicle = new VehicleService(new VehicleRepository()).readVehicle(vin);
         assertThat(vehicle).isEqualTo(new Vehicle(vin));
     }
 }

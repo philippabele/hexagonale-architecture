@@ -14,8 +14,6 @@
 
     <properties>
         <java.version>17</java.version>
-        <garage-management-mappings.version>0.0.1</garage-management-mappings.version>
-        <garage-management-pattern-language.version>0.0.1</garage-management-pattern-language.version>
         <garage-management-vehicle-context-common.version>0.0.1</garage-management-vehicle-context-common.version>
         <garage-management-external-services.version>0.0.1</garage-management-external-services.version>
         <mapstruct-maven-plugin.version>3.5.1</mapstruct-maven-plugin.version>
@@ -54,16 +52,6 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>de.novatec.hexacleanws</groupId>
-            <artifactId>garage-management-ddd-pattern-language</artifactId>
-            <version>${garage-management-pattern-language.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>de.novatec.hexacleanws</groupId>
-            <artifactId>garage-management-mapping-extensions</artifactId>
-            <version>${garage-management-mappings.version}</version>
         </dependency>
         <dependency>
             <groupId>de.novatec.hexacleanws</groupId>

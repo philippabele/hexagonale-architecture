@@ -15,8 +15,6 @@
 
     <modules>
         <module>hexacleanws-garage-management-external-services</module>
-        <module>hexacleanws-garage-management-ddd-pattern-language</module>
-        <module>hexacleanws-garage-management-mapping-extensions</module>
         <module>hexacleanws-garage-management</module>
     </modules>
 
