@@ -1,4 +1,4 @@
-# Lab 1 Clean Architecture Pattern, Modularization, SOLID and Domain Modules
++# Lab 1 Clean Architecture Pattern, Modularization, SOLID and Domain Modules
 
 ## General Information
 
@@ -118,7 +118,7 @@ Additionally the adapter ring is also separated in sub-structure following the s
 
 ![Package structure variant architectural expressive](../img/architectural-expressive.png)
 
-## Create the Domain Module and Domain Model
+## Task 1.1: Implement a Self-Validating Domain Model
 
 1. Create the root entity (or in DDD also called aggregate) <i>Vehicle</i> and place it in the designated package
 2. Create the value object <i>Vin</i> and place it in the designated package
@@ -143,11 +143,11 @@ Additionally the adapter ring is also separated in sub-structure following the s
 2. Run _mvn clean install -DskipTests_
 3. Execute _DomainModelTestExercise1.java_
 
-## Create the (Domain) Service
+## Task 1.2: Creaate the (Domain) Service for the Root Entity
 
 1. Create the (domain) service <i>VehiclesService</i> and place it in the designated package
 2. The <i>VehiclesService</i> should offer following method
-3.
+
 
 ```java
 

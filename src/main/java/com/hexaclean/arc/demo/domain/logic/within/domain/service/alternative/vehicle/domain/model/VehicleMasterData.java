@@ -22,4 +22,20 @@ public class VehicleMasterData extends ComposedValueObject {
         validateNotNull(mileageUnit, "Mileage Unit");
         evaluateValidations();
     }
+
+    public boolean isHas2GSupport() {
+        return has2GSupport;
+    }
+
+    public VehicleModel getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public SerialNumber getSerialNumber() {
+        return serialNumber;
+    }
+
+    public MileageUnit getMileageUnit() {
+        return mileageUnit;
+    }
 }

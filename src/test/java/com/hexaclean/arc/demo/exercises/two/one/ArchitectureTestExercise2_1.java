@@ -22,9 +22,8 @@ public class ArchitectureTestExercise2_1 extends BaseArchUnitExerciseTest {
                 .resideInAnyPackage(
                         DOMAIN,
                         DOMAIN_MODEL,
-                        //which stereotype is allowed to be accessed by the controller?
-                        //insert here...
-                        //ignore this list elements below
+                        USECASE_IN,
+                        USECASE,
                         ORG,
                         JAVA_LANG,
                         ADAPTER,

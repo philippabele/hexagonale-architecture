@@ -8,10 +8,10 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface VehicleToOriginVehicleMapper {
 
-    @Mapping(target = "vin.value", source = "vin.value")
-    @Mapping(target = "vehicleModel.modelDescription", source = "vehicleModel.modelDescription")
-    @Mapping(target = "vehicleModel.modelType", source = "vehicleModel.modelType")
-    @Mapping(target = "equipmentList", source = "equipmentList")
+    @Mapping(target = "vin", source = "vin.value")
+    @Mapping(target = "vehicleModel.modelDescription", source = "vehicleMasterData.vehicleModel.modelDescription")
+    @Mapping(target = "vehicleModel.modelType", source = "vehicleMasterData.vehicleModel.modelType")
+    @Mapping(target = "equipmentList", source = "vehicleMasterData.equipmentList")
     Vehicle mapOriginVehicleToVehicle(com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle origin);
 
     @Mapping(target = "code", source = "code.value")

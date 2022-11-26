@@ -30,6 +30,8 @@ public class IncomingUseCaseArchitectureTestExercise2_2 extends BaseArchUnitExer
         ArchRule rule = classes()
                 .that()
                 .haveSimpleName(SERVICE_UNDER_TEST)
+                .and()
+                .resideInAnyPackage("..app.vehicle.domain.service..", "..app.vehicle.domain..")
                 .should()
                 .implement(Class.forName("com.hexaclean.arc.demo.app.vehicle.usecase.in.VehicleQuery"));
         rule.check(classes);

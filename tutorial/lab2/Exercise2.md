@@ -15,7 +15,7 @@ The class-stereotype <i>Controller</i> is the place to
 
 ```java
 
-public Vehicle readVehicle(@PathVariable String vin);
+public Vehicle readVehicle(String vin);
 
 ```
 

@@ -10,19 +10,23 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class ArchitectureTestExercise1 extends BaseArchUnitExerciseTest {
 
+    public static final String VEHICLE_DOMAIN = "..vehicle.domain..";
+    public static final String VEHICLE_DOMAIN_MODEL = "..vehicle.domain.model..";
+
     @Test
     @DisplayName("The Vehicle should reside in a package called 'domain' or 'domain.model' and should only access classes of the same package.")
     void root_entity_check() {
         ArchRule rule = classes()
                 .that()
                 .haveSimpleName(ROOT_ENTITY_UNDER_TEST)
+                .and()
+                .resideInAnyPackage(VEHICLE_DOMAIN_MODEL, VEHICLE_DOMAIN)
                 .should()
-                .resideInAnyPackage(DOMAIN, DOMAIN_MODEL)
+                .dependOnClassesThat()
+                .resideInAnyPackage(VEHICLE_DOMAIN, VEHICLE_DOMAIN_MODEL, JAVA_LANG, JAVA_UTIL)
                 .andShould()
-                .onlyAccessClassesThat()
-                .resideInAnyPackage(DOMAIN_MODEL, JAVA_LANG, JAVA_UTIL)
-                .andShould()
-                .dependOnClassesThat().haveSimpleName(VALUE_OBJECT_UNDER_TEST);
+                .dependOnClassesThat()
+                .haveSimpleName(VALUE_OBJECT_UNDER_TEST);
         rule.check(classes);
     }
 
@@ -32,11 +36,10 @@ public class ArchitectureTestExercise1 extends BaseArchUnitExerciseTest {
         ArchRule rule = classes()
                 .that()
                 .haveSimpleName(VALUE_OBJECT_UNDER_TEST)
+                .and().resideInAnyPackage(VEHICLE_DOMAIN_MODEL, VEHICLE_DOMAIN)
                 .should()
-                .resideInAnyPackage(DOMAIN, DOMAIN_MODEL)
-                .andShould()
-                .onlyAccessClassesThat()
-                .resideInAnyPackage(JAVA_LANG, JAVA_UTIL, DOMAIN, DOMAIN_MODEL);
+                .dependOnClassesThat()
+                .resideInAnyPackage(JAVA_LANG, JAVA_UTIL, VEHICLE_DOMAIN, VEHICLE_DOMAIN_MODEL);
         rule.check(classes);
     }
 

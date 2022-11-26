@@ -20,6 +20,6 @@ public class MapperTestExercise3_2 extends BaseExerciseTest {
     }
 
     private Vehicle mapVehicleDbEntityToVehicle(VehicleDbEntity dbEntity) {
-        return new VehicleToVehicleDbEntityMapper().mapVehicleDbEntityToVehicle(dbEntity, null);
+        return new VehicleToVehicleDbEntityMapper().mapVehicleDbEntityToVehicle(dbEntity);
     }
 }

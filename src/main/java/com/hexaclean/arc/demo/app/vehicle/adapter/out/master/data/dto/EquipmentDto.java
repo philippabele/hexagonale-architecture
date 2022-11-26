@@ -4,6 +4,13 @@ public class EquipmentDto {
     private String code;
     private String label;
 
+    public EquipmentDto() {}
+
+    public EquipmentDto(String code, String label) {
+        this.code = code;
+        this.label = label;
+    }
+
     public String getCode() {
         return code;
     }

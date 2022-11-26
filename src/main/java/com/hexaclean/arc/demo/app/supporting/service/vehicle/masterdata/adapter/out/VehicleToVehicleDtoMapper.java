@@ -1,11 +1,7 @@
 package com.hexaclean.arc.demo.app.supporting.service.vehicle.masterdata.adapter.out;
 
-import com.clean.arc.demo.app.supporting.service.vehicle.masterdata.model.*;
-import com.daimler.dcp.clean.arc.demo.app.masterdata.model.*;
 import com.hexaclean.arc.demo.app.supporting.service.vehicle.masterdata.adapter.out.dto.EquipmentDto;
 import com.hexaclean.arc.demo.app.supporting.service.vehicle.masterdata.adapter.out.dto.VehicleDto;
-import com.daimler.dcp.clean.arc.demo.app.supporting.service.vehicle.masterdata.model.*;
-import com.daimler.dcp.clean.arc.demo.supporting.service.vehicle.masterdata.model.*;
 import com.hexaclean.arc.demo.app.supporting.service.vehicle.masterdata.model.*;
 
 import java.util.stream.Collectors;

@@ -30,7 +30,7 @@ public class VehicleQueryRepository implements VehicleDbQuery {
     }
 
     private VehicleDbEntity findVehicleDbEntity(Vin vin) {
-        return vehicleCrudRepository.findById(vin.value())
+        return vehicleCrudRepository.findById(vin.getValue())
                 .orElseThrow(() -> new IllegalArgumentException(
                         String.format("Could not find a vehicle for the given vin: %s")));
     }

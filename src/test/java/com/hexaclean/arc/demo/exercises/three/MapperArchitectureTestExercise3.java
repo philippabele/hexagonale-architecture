@@ -12,22 +12,24 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 public class MapperArchitectureTestExercise3 extends BaseArchUnitExerciseTest {
 
     @Test
-    @DisplayName("A class *Mapper should reside in a package called 'adapter.out' or 'adapter' and should only access dto's (db entities) and domain models")
+    @DisplayName("A Mapper should reside in a package called 'adapter.out' or 'adapter' and should only access dto's (db entities) and domain models")
     void repository_check() {
         ArchRule rule = classes()
                 .that()
                 .haveSimpleNameEndingWith("Mapper")
+                .and()
+                .resideInAnyPackage("..app.vehicle..")
                 .should()
-                .resideInAnyPackage(ADAPTER_OUT, ADAPTER)
+                .resideInAnyPackage(ADAPTER_IN, ADAPTER_OUT, ADAPTER, "..appservice..")
                 .andShould()
-                .onlyAccessClassesThat()
-                .resideInAnyPackage(ADAPTER_OUT, ADAPTER, JAVA_LANG, JAVA_UTIL)
-                .andShould()
-                .dependOnClassesThat().haveSimpleName(VALUE_OBJECT_UNDER_TEST)
-                .andShould()
-                .dependOnClassesThat().haveSimpleName(ROOT_ENTITY_UNDER_TEST)
-                .andShould()
-                .dependOnClassesThat().haveSimpleName(DB_ENTITY_UNDER_TEST);
+                .onlyDependOnClassesThat()
+                .resideInAnyPackage(DOMAIN, DOMAIN_MODEL, ADAPTER_OUT, ADAPTER, JAVA_LANG, JAVA_UTIL, ORG);
+                //.andShould()
+                //.dependOnClassesThat().haveSimpleName(VALUE_OBJECT_UNDER_TEST);
+                //.andShould()
+                //.dependOnClassesThat().haveSimpleName(ROOT_ENTITY_UNDER_TEST);
+                //.andShould()
+                //.dependOnClassesThat().haveSimpleName(DB_ENTITY_UNDER_TEST);
         rule.check(classes);
     }
 

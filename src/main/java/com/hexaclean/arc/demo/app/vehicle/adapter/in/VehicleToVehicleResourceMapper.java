@@ -1,11 +1,8 @@
 package com.hexaclean.arc.demo.app.vehicle.adapter.in;
 
-import com.clean.arc.demo.app.vehicle.domain.model.*;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.EquipmentResource;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleCommandResource;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
-import com.daimler.dcp.clean.arc.demo.app.vehicle.domain.model.*;
-import com.daimler.dcp.clean.arc.demo.vehicle.domain.model.*;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
 
 import java.util.List;

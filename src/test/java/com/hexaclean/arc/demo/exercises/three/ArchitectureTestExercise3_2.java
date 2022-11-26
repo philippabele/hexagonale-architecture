@@ -9,12 +9,17 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class ArchitectureTestExercise3_2 extends BaseArchUnitExerciseTest {
 
+    public static final String VEHICLE_ADAPTER = "..app.vehicle.adapter..";
+    public static final String VEHICLE_ADAPTER_OUT = "..app.vehicle.adapter.out..";
+
     @Test
     @DisplayName("A usecase.out should be implemented by an adapter.out implementation")
     void usecase_out_implementation_check() throws ClassNotFoundException {
         ArchRule rule = classes()
                 .that()
                 .haveSimpleName(REPOSITORY_UNDER_TEST)
+                .and()
+                .resideInAnyPackage(VEHICLE_ADAPTER_OUT, VEHICLE_ADAPTER)
                 .should()
                 .implement(Class.forName("com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery"));
         rule.check(classes);
@@ -40,11 +45,13 @@ public class ArchitectureTestExercise3_2 extends BaseArchUnitExerciseTest {
         ArchRule rule = classes()
                 .that()
                 .haveSimpleName(REPOSITORY_UNDER_TEST)
+                .and()
+                .resideInAnyPackage(VEHICLE_ADAPTER_OUT, VEHICLE_ADAPTER)
                 .should()
                 .resideInAnyPackage(ADAPTER, ADAPTER_OUT)
                 .andShould()
                 .onlyAccessClassesThat()
-                .resideInAnyPackage(ADAPTER, ADAPTER_OUT, USECASE_OUT, USECASE, DOMAIN, DOMAIN_MODEL, JAVA_LANG);
+                .resideInAnyPackage(ADAPTER, ADAPTER_OUT, USECASE_OUT, USECASE, DOMAIN, DOMAIN_MODEL, JAVA_LANG, JAVA_UTIL);
         rule.check(classes);
     }
 

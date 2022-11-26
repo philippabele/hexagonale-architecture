@@ -10,7 +10,7 @@ class Has2GSupportDetectorService {
 
     public boolean determineHas2GSupport(List<EquipmentDomainDto> equipmentList) {
         return equipmentList.stream()
-                .filter(equipment -> equipment.code().value().equals("CZ4711") || equipment.code().value().equals("BU0815"))
+                .filter(equipment -> equipment.code().value().equals("CZ471") || equipment.code().value().equals("BU081"))
                 .findAny().isPresent();
     }
 

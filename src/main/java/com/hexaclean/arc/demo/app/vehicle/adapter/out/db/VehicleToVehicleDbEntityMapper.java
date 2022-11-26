@@ -1,9 +1,6 @@
 package com.hexaclean.arc.demo.app.vehicle.adapter.out.db;
 
-import com.clean.arc.demo.app.vehicle.domain.model.*;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
-import com.daimler.dcp.clean.arc.demo.app.vehicle.domain.model.*;
-import com.daimler.dcp.clean.arc.demo.vehicle.domain.model.*;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
 import org.springframework.stereotype.Component;
 

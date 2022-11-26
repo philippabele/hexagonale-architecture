@@ -6,6 +6,5 @@ import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 
 public interface VehicleCommand {
     Vehicle create(Vehicle vehicle);
-
     Vehicle update(Vin vin, VehicleMotionData vehicleMotionData);
 }
