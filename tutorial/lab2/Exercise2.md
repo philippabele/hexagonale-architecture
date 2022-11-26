@@ -10,8 +10,7 @@ The class-stereotype <i>Controller</i> is the place to
 
 1. Create a <i>VehicleController</i> and place it in the designated package
 2. Implement the REST endpoint <i>/vehicle/{vin}</i> and return a hard-coded vehicle object. Use following method
-   signature.
-3. You can ignore spring specific annotations.
+   signature
 
 ```java
 
@@ -19,9 +18,11 @@ public Vehicle readVehicle(String vin);
 
 ```
 
+3. Please ignore spring or any other framework specific annotations
+
 ### Verify Your Implementation
 
-1. Move the test _ControllerTestExercise2_1.java_ from _exercises/tests/two/one_ to _
+1. Move the test _ControllerTestExercise2_1.java_ from _exercises/lab2/two/one_ to _
    src/test/java/com/daimler/dcp/clean/arc/demo/exercise/two/one_
 2. Run _mvn clean install -DskipTests_
 3. Execute _ControllerTestExercise2_1.java_
@@ -35,7 +36,7 @@ public Vehicle readVehicle(String vin);
 
 ## Dependency Injection
 
-Dependency injection is a pattern described as follows:
+Dependency Injection is a pattern described as follows:
 
 A central component, the dependency injector, manages the lifecycle of class instances and injects these instances into
 several consumers.
@@ -48,22 +49,22 @@ Relevant types of dependency injection by example:
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class VehicleService {
+public class Consumer {
 
-   @Autowired //field injection
-   private DependencyOne one;
-   
-   private DependencyTwo two;
-   
-   @Autowired // contructor injection
-   public VehicleService(DependencyTwo two) {
-       this.two = two;
-   }
-   
-   @Autowired //method injection
-   public void doSomething(DependencyThree three) {
-       three.doSomething();
-   }
+    @Autowired //field injection
+    private DependencyOne one;
+
+    private DependencyTwo two;
+
+    @Autowired // contructor injection
+    public VehicleService(DependencyTwo two) {
+        this.two = two;
+    }
+
+    @Autowired //method injection
+    public void doSomething(DependencyThree three) {
+        three.doSomething();
+    }
 }
 ```
 
@@ -80,7 +81,7 @@ Both help to reduce coupling in the software architecture.
 
 ```java
 
-Vehicle readVehicle(Vin vin);
+Vehicle findByVin(Vin vin);
 
 ```
 
@@ -103,25 +104,25 @@ and place it in the designated package.
    orientation.
 
 ```java
-void http_input_adapter_check() {
-     ArchRule rule = classes()
-     .that().haveSimpleName(CONTROLLER_UNDER_TEST)
-     .should().resideInAnyPackage(ADAPTER, ADAPTER_IN)
-     .andShould().onlyDependOnClassesThat()
-     .resideInAnyPackage(
-             DOMAIN,
-            DOMAIN_MODEL,
-            //which stereotype is allowed to be accessed by the controller?
-            //insert here...
-            //ignore this list elements below
-            ORG,
-            JAVA_LANG,
-            ADAPTER,
-            ADAPTER_IN
+void http_input_adapter_check(){
+        ArchRule rule=classes()
+        .that().haveSimpleName(CONTROLLER_UNDER_TEST)
+        .should().resideInAnyPackage(ADAPTER,ADAPTER_IN)
+        .andShould().onlyDependOnClassesThat()
+        .resideInAnyPackage(
+        DOMAIN,
+        DOMAIN_MODEL,
+        //which stereotype is allowed to be accessed by the controller?
+        //insert here...
+        //ignore this list elements below
+        ORG,
+        JAVA_LANG,
+        ADAPTER,
+        ADAPTER_IN
         );
-     
-     rule.check(classes);
-}
+
+        rule.check(classes);
+        }
 ```
 
 [Solution](Exercise2-fix-architecture-test.md)
@@ -158,8 +159,7 @@ Vehicle findVehicleByVin(Vin vin);
 ```
 
 2. Create the repository <i>VehicleRepository</i> and place it in the designated package
-3. The repository should return a hard-coded <i>Vehicle</i> instance
-4. Implement the outgoing usecase <i>VehicleDbQuery</i>  with the correct class-stereotype
+3. The repository should implement <i>VehicleDbQuery</i> and should return a hard-coded <i>Vehicle</i> instance
 5. Replace the hard-coded <i>Vehicle</i> within <i>VehicleService</i> with the usage of <i>VehicleDbQuery</i>
 6. The dependency between <i>VehicleService</i> and <i>VehicleDbQuery</i> should be resolved via constructor injection
 
@@ -188,19 +188,20 @@ well as setter and getters for all properties.
 @Table("vehicle")  //jdbc
 @Entity //jpa
 public class Vehicle {
-    
+
     @Column("vin")
     @Id
     private Vin vin;
-    
+
     //...
-    
-    public Vehicle() {}
-    
+
+    public Vehicle() {
+    }
+
     public Vehicle(Vin vin) {
         //...
     }
-    
+
     //getter and setter
 }
 
@@ -213,10 +214,18 @@ public class Vehicle {
 2. Is a value object a good structure for a relational database?
     1. What are benefits of a value object like the <i>Vin</i>?
 3. How would you describe the relationship between dependency inversion and dependency injection?
-4. How would you describe the single responsibility principles for the following classes
+4. How would you describe the single responsibility principles for the following classes? Make two or three bullet
+   points for the scheme _The responsibility of 'NAME' with the stereoytpe 'TYPE' is:_
     1. <i>VehicleController</i>,
     2. <i>VehicleService</i>,
     3. <i>VehicleRepository</i> and
     4. <i>Vehicle</i>
+
+Example:
+The responsibility of _VehicleController_ with the stereoytpe _Controller_ is:
+
+* ...
+* ...
+* ...
 
 [Solution](Exercise2-additional-questions.md)
