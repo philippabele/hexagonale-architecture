@@ -9,7 +9,6 @@ public class Vehicle {
     private Vin vin;
     private VehicleMotionData vehicleMotionData;
     private VehicleMasterData vehicleMasterData;
-    private boolean has2GSupport;
 
     public Vehicle(Vin vin, VehicleMotionData vehicleMotionData) {
         this.vin = vin;
@@ -24,13 +23,6 @@ public class Vehicle {
         this(vin, vehicleMotionData);
         this.vehicleMasterData = vehicleMasterData;
         validateVehicleMasterData();
-        determineHas2GSupport();
-    }
-
-    private void determineHas2GSupport() {
-        this.has2GSupport = this.vehicleMasterData.equipmentList().stream()
-                .filter(equipment -> equipment.code().value().equals("CZ471") || equipment.code().value().equals("BU081"))
-                .findAny().isPresent();
     }
 
     @Override
@@ -56,10 +48,6 @@ public class Vehicle {
 
     public VehicleMasterData getVehicleMasterData() {
         return vehicleMasterData;
-    }
-
-    public boolean isHas2GSupport() {
-        return has2GSupport;
     }
 
     public void addVehicleMasterData(VehicleMasterData vehicleMasterData) {

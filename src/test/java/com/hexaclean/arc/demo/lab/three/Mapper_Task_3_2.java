@@ -1,7 +1,7 @@
 package com.hexaclean.arc.demo.lab.three;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.VehicleToVehicleDbEntityMapper;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.entity.VehicleDbEntity;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.VehicleToVehicleDbEntityMapper;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +14,7 @@ public class Mapper_Task_3_2 extends BaseExerciseTest {
     @Test
     @DisplayName("The VehicleToVehicleDbEntityMapper should return a valid vehicle instance")
     void vehicle_and_vin_should_be_created_successful() {
-        VehicleDbEntity dbEntity = createVehicleDbEntity();
+        VehicleDbEntity dbEntity = createExpectedVehicleDbEntity();
         Vehicle vehicle = mapVehicleDbEntityToVehicle(dbEntity);
         assertThat(vehicle).isEqualTo(createExpectedVehicle());
     }
