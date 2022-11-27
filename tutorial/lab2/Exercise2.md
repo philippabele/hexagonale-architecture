@@ -50,20 +50,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class VehicleService {
 
-   @Autowired //field injection
-   private DependencyOne one;
-   
-   private DependencyTwo two;
-   
-   @Autowired // contructor injection
-   public VehicleService(DependencyTwo two) {
-       this.two = two;
-   }
-   
-   @Autowired //method injection
-   public void doSomething(DependencyThree three) {
-       three.doSomething();
-   }
+    @Autowired //field injection
+    private DependencyOne one;
+
+    private DependencyTwo two;
+
+    @Autowired // contructor injection
+    public VehicleService(DependencyTwo two) {
+        this.two = two;
+    }
+
+    @Autowired //method injection
+    public void doSomething(DependencyThree three) {
+        three.doSomething();
+    }
 }
 ```
 
@@ -188,19 +188,20 @@ well as setter and getters for all properties.
 @Table("vehicle")  //jdbc
 @Entity //jpa
 public class Vehicle {
-    
+
     @Column("vin")
     @Id
     private Vin vin;
-    
+
     //...
-    
-    public Vehicle() {}
-    
+
+    public Vehicle() {
+    }
+
     public Vehicle(Vin vin) {
         //...
     }
-    
+
     //getter and setter
 }
 

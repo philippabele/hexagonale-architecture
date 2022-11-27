@@ -10,6 +10,7 @@ public class Vehicle extends Aggregate {
     private Vin vin;
     private VehicleMotionData vehicleMotionData;
     private VehicleMasterData vehicleMasterData;
+    private boolean has2GSupport;
 
     public Vehicle(Vin vin, VehicleMotionData vehicleMotionData) {
         this.vin = vin;
@@ -53,14 +54,19 @@ public class Vehicle extends Aggregate {
         return vehicleMasterData;
     }
 
-    public void addVehicleMasterData(VehicleMasterData vehicleMasterData) {
+    public void addVehicleMasterData(VehicleMasterData vehicleMasterData, boolean has2GSupport) {
         this.vehicleMasterData = vehicleMasterData;
+        this.has2GSupport = has2GSupport;
         validateVehicleMasterData();
         evaluateValidations();
     }
 
     private void validateVehicleMasterData() {
-       validateNotNull(vehicleMasterData, "Vehicle Master Data");
+        validateNotNull(vehicleMasterData, "Vehicle Master Data");
+    }
+
+    public boolean isHas2GSupport() {
+        return has2GSupport;
     }
 
     @Override

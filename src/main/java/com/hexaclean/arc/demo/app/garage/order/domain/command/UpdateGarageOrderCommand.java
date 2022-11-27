@@ -1,8 +1,8 @@
 package com.hexaclean.arc.demo.app.garage.order.domain.command;
 
-import com.hexaclean.arc.demo.app.garage.order.domain.model.vehicle.LicensePlate;
 import com.hexaclean.arc.demo.app.garage.order.domain.model.OrderNumber;
 import com.hexaclean.arc.demo.app.garage.order.domain.model.OrderPosition;
+import com.hexaclean.arc.demo.app.garage.order.domain.model.vehicle.LicensePlate;
 
 import java.util.List;
 

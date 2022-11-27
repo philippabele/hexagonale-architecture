@@ -1,7 +1,5 @@
 package com.hexaclean.arc.demo.app.vehicle.adapter.in.resource;
 
-import java.util.List;
-
 public class VehicleResource {
     private String vin;
     private String registrationCountry;
@@ -11,7 +9,7 @@ public class VehicleResource {
     private String vehicleModelName;
     private String vehicleModelType;
     private String serialNumber;
-    private List<EquipmentResource> equipmentList;
+    private boolean has2GSupport;
 
     public String getVin() {
         return vin;
@@ -77,11 +75,11 @@ public class VehicleResource {
         this.vehicleModelType = vehicleModelType;
     }
 
-    public List<EquipmentResource> getEquipmentList() {
-        return equipmentList;
+    public boolean isHas2GSupport() {
+        return has2GSupport;
     }
 
-    public void setEquipmentList(List<EquipmentResource> equipmentList) {
-        this.equipmentList = equipmentList;
+    public void setHas2GSupport(boolean has2GSupport) {
+        this.has2GSupport = has2GSupport;
     }
 }

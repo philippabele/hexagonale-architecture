@@ -18,7 +18,8 @@ public class ExplosionChartApplicationService implements ExplosionChartQuery {
     private VehicleToOriginVehicleMapper vehicleToOriginVehicleMapper;
     private ExplosionChartDomainService explosionChartDomainService;
 
-    public ExplosionChartApplicationService(FetchExplosionChart fetchExplosionChart, VehicleQuery vehicleQuery,
+    public ExplosionChartApplicationService(FetchExplosionChart fetchExplosionChart,
+                                            VehicleQuery vehicleQuery,
                                             VehicleToOriginVehicleMapper vehicleToOriginVehicleMapper,
                                             ExplosionChartDomainService explosionChartDomainService) {
         this.fetchExplosionChart = fetchExplosionChart;
@@ -30,7 +31,7 @@ public class ExplosionChartApplicationService implements ExplosionChartQuery {
     @Override
     public ExplosionChart read(PartsCategoryCode partsCategoryCode, String vin) {
         Vehicle vehicle = vehicleToOriginVehicleMapper.mapOriginVehicleToVehicle(vehicleQuery.findByVin(new Vin(vin)));
-        ExplosionChart explosionChart = fetchExplosionChart.fetch(partsCategoryCode, vehicle.vehicleModel(), vehicle.equipmentList());
+        ExplosionChart explosionChart = fetchExplosionChart.fetch(partsCategoryCode, vehicle.vehicleModel(), vehicle.has2GSupport());
         explosionChartDomainService.doSomeIdependentBusinessLogic(explosionChart);
         explosionChart.doSomeIdependentBusinessLogic();
         return explosionChart;

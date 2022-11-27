@@ -3,13 +3,11 @@ package com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.ve
 import io.github.domainprimitives.object.ComposedValueObject;
 
 public class VehicleMasterData extends ComposedValueObject {
-    private boolean has2GSupport;
     private VehicleModel vehicleModel;
     private SerialNumber serialNumber;
     private MileageUnit mileageUnit;
 
-    public VehicleMasterData(boolean has2GSupport, VehicleModel vehicleModel, SerialNumber serialNumber, MileageUnit mileageUnit) {
-        this.has2GSupport = has2GSupport;
+    public VehicleMasterData(VehicleModel vehicleModel, SerialNumber serialNumber, MileageUnit mileageUnit) {
         this.vehicleModel = vehicleModel;
         this.serialNumber = serialNumber;
         this.mileageUnit = mileageUnit;
@@ -21,10 +19,6 @@ public class VehicleMasterData extends ComposedValueObject {
         validateNotNull(serialNumber, "Serial Number");
         validateNotNull(mileageUnit, "Mileage Unit");
         evaluateValidations();
-    }
-
-    public boolean isHas2GSupport() {
-        return has2GSupport;
     }
 
     public VehicleModel getVehicleModel() {

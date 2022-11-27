@@ -1,21 +1,24 @@
 package com.hexaclean.arc.demo.app.vehicle.adapter.out.db;
 
-import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
-import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.LicensePlate;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
+import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
+import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery;
 import org.springframework.stereotype.Component;
 
 @Component
 public class VehicleQueryRepository implements VehicleDbQuery {
 
     private VehicleToVehicleDbEntityMapper mapper;
-    private VehicleCrudRepository vehicleCrudRepository;
 
-    public VehicleQueryRepository(VehicleToVehicleDbEntityMapper mapper, VehicleCrudRepository vehicleCrudRepository) {
+    private static final String VIN = "WP0ZZZ99ZTS392155";
+    private static final String LICENSE_PLATE_TEST_VALUE = "ES-EM 385";
+    private static final double MILEAGE_TEST_VALUE = 100000;
+    private static final String REGISTRATION_COUNTRY_TEST_VALUE = "DE-de";
+
+    public VehicleQueryRepository(VehicleToVehicleDbEntityMapper mapper) {
         this.mapper = mapper;
-        this.vehicleCrudRepository = vehicleCrudRepository;
     }
 
     @Override
@@ -30,8 +33,11 @@ public class VehicleQueryRepository implements VehicleDbQuery {
     }
 
     private VehicleDbEntity findVehicleDbEntity(Vin vin) {
-        return vehicleCrudRepository.findById(vin.value())
-                .orElseThrow(() -> new IllegalArgumentException(
-                        String.format("Could not find a vehicle for the given vin: %s", vin.value())));
+        VehicleDbEntity dbEntity = new VehicleDbEntity();
+        dbEntity.setVin(VIN);
+        dbEntity.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
+        dbEntity.setMilage(MILEAGE_TEST_VALUE);
+        dbEntity.setRegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE);
+        return dbEntity;
     }
 }

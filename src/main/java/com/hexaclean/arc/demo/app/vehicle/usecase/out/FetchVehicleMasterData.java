@@ -1,8 +1,8 @@
 package com.hexaclean.arc.demo.app.vehicle.usecase.out;
 
-import com.hexaclean.arc.demo.app.vehicle.domain.model.VehicleMasterData;
+import com.hexaclean.arc.demo.app.vehicle.domain.dto.VehicleMasterDataDomainDto;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 
 public interface FetchVehicleMasterData {
-    VehicleMasterData fetch(Vin vin);
+    VehicleMasterDataDomainDto fetch(Vin vin);
 }

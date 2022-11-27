@@ -8,6 +8,6 @@ import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.veh
 import java.util.List;
 
 public record VehicleMasterDataDomainDto(
-        List<EquipmentDomainDto> equipmentList,
+        List<String> equipmentList,
         VehicleModel vehicleModel, MileageUnit mileageUnit, SerialNumber serialNumber) {
 }
