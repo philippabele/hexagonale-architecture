@@ -1,6 +1,7 @@
-package com.hexaclean.arc.demo.app.vehicle.adapter.in.resource;
+package com.hexaclean.arc.demo.app.vehicle.adapter.out.entity;
 
-public class VehicleResource {
+public class VehicleDbEntity {
+
     private String vin;
 
     public String getVin() {
