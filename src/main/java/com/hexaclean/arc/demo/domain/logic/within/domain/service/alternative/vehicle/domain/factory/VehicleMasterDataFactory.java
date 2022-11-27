@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class VehicleMasterDataFactory {
 
-    public VehicleMasterData create(VehicleMasterDataDomainDto domainDto, boolean has2GSupport) {
-        return new VehicleMasterData(has2GSupport,
+    public VehicleMasterData create(VehicleMasterDataDomainDto domainDto) {
+        return new VehicleMasterData(
                 domainDto.vehicleModel(),
                 domainDto.serialNumber(),
                 domainDto.mileageUnit());

@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 public class LongValueObject extends ValueObject<Long> {
 
-    private static  Consumer<Validation<Long>> constraints = Constraints.isNotNullLong();
+    private static Consumer<Validation<Long>> constraints = Constraints.isNotNullLong();
 
     public LongValueObject(Long value, String label) {
         super(value, label, constraints);

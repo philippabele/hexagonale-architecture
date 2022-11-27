@@ -2,11 +2,11 @@ package com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.EquipmentDto;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.EquipmentListDto;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.VehicleDataDto;
+import com.hexaclean.arc.demo.app.vehicle.domain.dto.VehicleMasterDataDomainDto;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.MileageUnitValue;
-import com.hexaclean.arc.demo.app.vehicle.domain.model.VehicleMasterData;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 import com.hexaclean.arc.demo.app.vehicle.usecase.out.FetchVehicleMasterData;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.VehicleDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,14 +25,14 @@ public class VehicleMasterDataServiceClient implements FetchVehicleMasterData {
     }
 
     @Override
-    public VehicleMasterData fetch(Vin vin) {
+    public VehicleMasterDataDomainDto fetch(Vin vin) {
         return mapper.mapVehicleDtoToVehicleMasterData(createExpectedVehicleDto());
     }
 
-    private VehicleDto createExpectedVehicleDto() {
+    private VehicleDataDto createExpectedVehicleDto() {
         EquipmentListDto equipmentListDto = new EquipmentListDto();
         equipmentListDto.setEquipmentList(createEquipmentListDto());
-        VehicleDto vehicleDto = new VehicleDto();
+        VehicleDataDto vehicleDto = new VehicleDataDto();
         vehicleDto.setBaumuster(VEHICLE_MODEL_TYPE_TEST_VALUE);
         vehicleDto.setBaumusterDescription(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE);
         vehicleDto.setMileageUnit(MileageUnitValue.KM.toString());

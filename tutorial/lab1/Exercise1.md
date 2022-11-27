@@ -148,10 +148,9 @@ Additionally the adapter ring is also separated in sub-structure following the s
 1. Create the (domain) service <i>VehiclesService</i> and place it in the designated package
 2. The <i>VehiclesService</i> should offer following method
 
-
 ```java
 
-public Vehicle readVehicle(Vin vin) {...}
+public Vehicle readVehicle(Vin vin){...}
 
 ```
 

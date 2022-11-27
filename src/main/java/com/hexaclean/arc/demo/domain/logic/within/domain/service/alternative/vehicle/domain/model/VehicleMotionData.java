@@ -17,7 +17,7 @@ public class VehicleMotionData extends Entity {
     }
 
     public void changeMileage(Mileage newMileage) {
-        if(newMileage.getValue() <= this.mileage.getValue()) {
+        if (newMileage.getValue() <= this.mileage.getValue()) {
             throw new InvariantException("Vehicle Motion Data / Mileage", "The new mileage is not higher the current value. This is strange!");
         } else {
             this.mileage = newMileage;

@@ -6,6 +6,6 @@ import io.github.domainprimitives.validation.Constraints;
 public class SerialNumber extends StringValueObject {
 
     public SerialNumber(String value) {
-        super(value,"Serial Number", Constraints.isPattern("[0-9]{10}"));
+        super(value, "Serial Number", Constraints.isPattern("[0-9]{10}"));
     }
 }

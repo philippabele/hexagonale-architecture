@@ -1,18 +1,11 @@
 package com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.adapter.in.mapping;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleToVehicleResourceMapStructMapper;
-import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.adapter.in.resource.EquipmentResource;
-import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.adapter.in.resource.VehicleCommandResource;
 import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.adapter.in.resource.VehicleResource;
-import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.dto.EquipmentCodeDomainDto;
-import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.dto.EquipmentDomainDto;
-import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.model.*;
+import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.model.Vehicle;
 import ma.glasnost.orika.BoundMapperFacade;
-import ma.glasnost.orika.CustomConverter;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.converter.ConverterFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
-import ma.glasnost.orika.metadata.Type;
 
 public class VehicleToVehicleResourceMapper {
 

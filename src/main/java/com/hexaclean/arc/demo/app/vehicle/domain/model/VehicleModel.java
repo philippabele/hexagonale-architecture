@@ -4,11 +4,11 @@ public record VehicleModel(String modelDescription, String modelType) {
 
     public VehicleModel {
 
-        if(modelDescription == null || modelDescription.isBlank()) {
+        if (modelDescription == null || modelDescription.isBlank()) {
             throw new IllegalStateException("Model description is not valid");
         }
 
-        if(modelType == null || modelType.isBlank()) {
+        if (modelType == null || modelType.isBlank()) {
             throw new IllegalStateException("Model type is not valid");
         }
     }

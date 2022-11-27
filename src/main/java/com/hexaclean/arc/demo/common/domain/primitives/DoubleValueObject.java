@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 public class DoubleValueObject extends ValueObject<Double> {
 
-    private static  Consumer<Validation<Double>> constraints = Constraints.isNotNullDouble();
+    private static Consumer<Validation<Double>> constraints = Constraints.isNotNullDouble();
 
     public DoubleValueObject(Double value, String label) {
         super(value, label, constraints);

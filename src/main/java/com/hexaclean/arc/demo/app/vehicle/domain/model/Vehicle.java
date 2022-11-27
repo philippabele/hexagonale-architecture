@@ -2,6 +2,7 @@ package com.hexaclean.arc.demo.app.vehicle.domain.model;
 
 import com.hexaclean.arc.demo.common.mapstruct.Default;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Vehicle {
@@ -9,7 +10,7 @@ public class Vehicle {
     private Vin vin;
     private VehicleMotionData vehicleMotionData;
     private VehicleMasterData vehicleMasterData;
-    private boolean has2GSupport;
+    private Boolean has2GSupport;
 
     public Vehicle(Vin vin, VehicleMotionData vehicleMotionData) {
         this.vin = vin;
@@ -20,17 +21,18 @@ public class Vehicle {
     }
 
     @Default
-    public Vehicle(Vin vin, VehicleMotionData vehicleMotionData, VehicleMasterData vehicleMasterData) {
+    public Vehicle(Vin vin, VehicleMotionData vehicleMotionData, VehicleMasterData vehicleMasterData, boolean has2GSupport) {
         this(vin, vehicleMotionData);
+        this.has2GSupport = has2GSupport;
         this.vehicleMasterData = vehicleMasterData;
         validateVehicleMasterData();
-        determineHas2GSupport();
     }
 
-    private void determineHas2GSupport() {
-        this.has2GSupport = this.vehicleMasterData.equipmentList().stream()
-                .filter(equipment -> equipment.code().value().equals("CZ471") || equipment.code().value().equals("BU081"))
-                .findAny().isPresent();
+    private void determineHas2GSupport(List<String> equipmentCodes) {
+        this.has2GSupport = equipmentCodes.stream()
+                .filter(code -> code.equals("GS200"))
+                .findAny()
+                .isPresent();
     }
 
     @Override
@@ -58,18 +60,18 @@ public class Vehicle {
         return vehicleMasterData;
     }
 
-    public boolean isHas2GSupport() {
+    public Boolean isHas2GSupport() {
         return has2GSupport;
-    }
-
-    public void addVehicleMasterData(VehicleMasterData vehicleMasterData) {
-        this.vehicleMasterData = vehicleMasterData;
-        validateVehicleMasterData();
     }
 
     private void validateVehicleMasterData() {
         if (this.vehicleMasterData == null) {
             throw new IllegalStateException("vehicle master data should not be null!");
         }
+    }
+
+    public void addVehicleMasterData(VehicleModel vehicleModel, SerialNumber serialNumber, MileageUnit mileageUnit, List<String> equipmentCodes) {
+        this.vehicleMasterData = new VehicleMasterData(vehicleModel, serialNumber, mileageUnit);
+        determineHas2GSupport(equipmentCodes);
     }
 }

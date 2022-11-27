@@ -1,9 +1,9 @@
 package com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.service;
 
-import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.model.Vin;
-import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.usecase.in.VehicleCommand;
 import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.model.VehicleMotionData;
+import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.domain.model.Vin;
+import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.usecase.in.VehicleCommand;
 import com.hexaclean.arc.demo.domain.logic.within.domain.service.alternative.vehicle.usecase.out.VehicleDbCommand;
 import org.springframework.stereotype.Service;
 

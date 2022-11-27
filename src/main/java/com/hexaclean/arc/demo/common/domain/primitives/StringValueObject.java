@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 public class StringValueObject extends ValueObject<String> {
 
-    private static  Consumer<Validation<String>> constraints = Constraints.isNotNull().andThen(Constraints.isNotBlank());
+    private static Consumer<Validation<String>> constraints = Constraints.isNotNull().andThen(Constraints.isNotBlank());
 
     public StringValueObject(String value, String label) {
         super(value, label, constraints);
