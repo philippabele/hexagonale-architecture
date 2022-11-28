@@ -16,13 +16,13 @@ public class DomainRing_Task_1_1 extends BaseExerciseTest {
     @Test
     @DisplayName("A vehicle can only created with a valid vin.")
     void should_throw_illegal_state_exception_due_to_invalid_vin() {
-        assertThrows(IllegalStateException.class, () -> new Vehicle(new Vin("hgjhgkjhkhkhjh")));
+        assertThrows(Exception.class, () -> new Vehicle(new Vin("hgjhgkjhkhkhjh")));
     }
 
     @Test
     @DisplayName("A vehicle can only created with a valid vin.")
     void should_throw_illegal_state_exception_due_to_null_for_vin() {
-        assertThrows(IllegalStateException.class, () -> new Vehicle(null));
+        assertThrows(Exception.class, () -> new Vehicle(null));
     }
 
     @Test

@@ -1,23 +1,17 @@
-package com.daimler.dcp.clean.arc.demo.exercises.two.two;
+package com.hexaclean.arc.demo.lab.two;
 
-import com.daimler.dcp.clean.arc.demo.exercises.BaseArchUnitExerciseTest;
-import com.daimler.dcp.clean.arc.demo.exercises.BaseExerciseTest;
-import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.importer.ImportOption;
-import com.tngtech.archunit.junit.AnalyzeClasses;
-import com.tngtech.archunit.junit.ArchTest;
+import com.hexaclean.arc.demo.lab.BaseArchUnitExerciseTest;
 import com.tngtech.archunit.lang.ArchRule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
-
-public class ArchitectureTestExercise2_2 extends BaseArchUnitExerciseTest {
+public class ArchitectureTest_Task_2_1_2_2 extends BaseArchUnitExerciseTest {
 
     @Test
-    @DisplayName("A adapter in is only allowed to depend on a usecase.in and domain.model")
-    void adapter_in_check() {
+    @DisplayName("VehicleController is located correctly and depends only on domain, domain.model as well as ? <insert here>")
+    void http_input_adapter_check() {
         ArchRule rule = classes()
                 .that()
                 .haveSimpleName(CONTROLLER_UNDER_TEST)
@@ -25,7 +19,15 @@ public class ArchitectureTestExercise2_2 extends BaseArchUnitExerciseTest {
                 .resideInAnyPackage(ADAPTER, ADAPTER_IN)
                 .andShould()
                 .onlyAccessClassesThat()
-                .resideInAnyPackage(DOMAIN, DOMAIN_MODEL, USECASE, USECASE_IN, JAVA_LANG, ADAPTER, ADAPTER_IN);
+                .resideInAnyPackage(
+                        DOMAIN,
+                        DOMAIN_MODEL,
+                        USECASE_IN,
+                        USECASE,
+                        ORG,
+                        JAVA_LANG,
+                        ADAPTER,
+                        ADAPTER_IN);
         rule.check(classes);
     }
 
@@ -49,8 +51,10 @@ public class ArchitectureTestExercise2_2 extends BaseArchUnitExerciseTest {
         ArchRule rule = classes()
                 .that()
                 .haveSimpleName(SERVICE_UNDER_TEST)
+                .and()
+                .resideInAnyPackage("..app.vehicle.domain.service..", "..app.vehicle.domain..")
                 .should()
-                .implement(Class.forName("com.daimler.dcp.clean.arc.demo.vehicle.usecase.in.VehicleQuery"));
+                .implement(Class.forName("com.hexaclean.arc.demo.app.vehicle.usecase.in.VehicleQuery"));
         rule.check(classes);
     }
 

@@ -12,6 +12,7 @@ public class ArchitectureTest_Task_1_1 extends BaseArchUnitExerciseTest {
 
     public static final String VEHICLE_DOMAIN = "..vehicle.domain..";
     public static final String VEHICLE_DOMAIN_MODEL = "..vehicle.domain.model..";
+    public static final String IO_GITHUB_DOMAINPRIMITIVES = "..io.github.domainprimitives..";
 
     @Test
     @DisplayName("The Vehicle should reside in a package called 'domain' or 'domain.model' and should only access classes of the same package.")
@@ -22,8 +23,8 @@ public class ArchitectureTest_Task_1_1 extends BaseArchUnitExerciseTest {
                 .and()
                 .resideInAnyPackage(VEHICLE_DOMAIN_MODEL, VEHICLE_DOMAIN)
                 .should()
-                .dependOnClassesThat()
-                .resideInAnyPackage(VEHICLE_DOMAIN, VEHICLE_DOMAIN_MODEL, JAVA_LANG, JAVA_UTIL)
+                .onlyAccessClassesThat()
+                .resideInAnyPackage(IO_GITHUB_DOMAINPRIMITIVES, VEHICLE_DOMAIN, VEHICLE_DOMAIN_MODEL, JAVA_LANG, JAVA_UTIL)
                 .andShould()
                 .dependOnClassesThat()
                 .haveSimpleName(VALUE_OBJECT_UNDER_TEST);
@@ -38,8 +39,8 @@ public class ArchitectureTest_Task_1_1 extends BaseArchUnitExerciseTest {
                 .haveSimpleName(VALUE_OBJECT_UNDER_TEST)
                 .and().resideInAnyPackage(VEHICLE_DOMAIN_MODEL, VEHICLE_DOMAIN)
                 .should()
-                .dependOnClassesThat()
-                .resideInAnyPackage(JAVA_LANG, JAVA_UTIL, VEHICLE_DOMAIN, VEHICLE_DOMAIN_MODEL);
+                .onlyAccessClassesThat()
+                .resideInAnyPackage(IO_GITHUB_DOMAINPRIMITIVES, JAVA_LANG, JAVA_UTIL, VEHICLE_DOMAIN, VEHICLE_DOMAIN_MODEL);
         rule.check(classes);
     }
 
