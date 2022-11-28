@@ -157,7 +157,16 @@ Rename the
 * VehicleService to VehicleQueryService
 * VehicleRepository to VehicleQueryRepository
 
-Execute all tests.
+### Verify your Implementation
+
+1. Move the tests _OutputAdapter_Task_5_1.java_ and _DomainRing_Task_5_1 from _tutorial/lab/five_ to _
+   src/test/java/com/hexaclean/arc/demo/lab/five_
+2. Run _mvn clean install -DskipTests_
+3. Execute _OutputAdapter_Task_5_1.java_ and _DomainRing_Task_5_1
+
+### Verify Your Architecture
+
+Execute all architecture tests
 
 ## Task 5.2: Introduce VehicleCommand and VehicleDbCommand
 
@@ -170,6 +179,10 @@ In the next step, we want to introduce functionality to create and update a vehi
 
 Consider the package structure varianta and place all classes it in the designated package and reuse existing mappings
 when possible.
+
+### Verify Your Architecture
+
+Execute all architecture tests
 
 ## Rich vs. Anemic Domain Model
 
@@ -199,9 +212,16 @@ the behaviour within the domain model.
 1. Add the property _boolean has2GSupport_ to the _Vehicle_ class
 2. Implement a the determination and trigger it, as soon as the equipment list is available or changed.
 
+### Verify your Implementation
+
+1. Move the tests _DomainRing_Task_5_3.java_ from _tutorial/lab/five_ to _
+   src/test/java/com/hexaclean/arc/demo/lab/five_
+2. Run _mvn clean install -DskipTests_
+3. Execute _DomainRing_Task_5_3.java_ and _DomainRing_Task_4_5
+
 ## Task 5.4: Hold the Domain Model Clean with Full Mapping Strategy
 
-Let's change the secnario a little bit. For our domain the equipment list is not important. We need this only to
+Let's change the scenario a little bit. For our domain the equipment list is not important. We need this only to
 determine enriched information like the _has2GSupport_ property.
 
 We are very accurate and want to create a absolutely clean domain model. When our domain does not know a equipment list

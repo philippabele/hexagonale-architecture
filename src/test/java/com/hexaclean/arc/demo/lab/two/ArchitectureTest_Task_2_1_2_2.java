@@ -7,8 +7,29 @@ import org.junit.jupiter.api.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
+public class ArchitectureTest_Task_2_1_2_2 extends BaseArchUnitExerciseTest {
 
-public class ArchitectureTest_Task_2_2 extends BaseArchUnitExerciseTest {
+    @Test
+    @DisplayName("VehicleController is located correctly and depends only on domain, domain.model as well as ? <insert here>")
+    void http_input_adapter_check() {
+        ArchRule rule = classes()
+                .that()
+                .haveSimpleName(CONTROLLER_UNDER_TEST)
+                .should()
+                .resideInAnyPackage(ADAPTER, ADAPTER_IN)
+                .andShould()
+                .onlyAccessClassesThat()
+                .resideInAnyPackage(
+                        DOMAIN,
+                        DOMAIN_MODEL,
+                        USECASE_IN,
+                        USECASE,
+                        ORG,
+                        JAVA_LANG,
+                        ADAPTER,
+                        ADAPTER_IN);
+        rule.check(classes);
+    }
 
     @Test
     @DisplayName("A usecase.in should be located in the correct package and depends only on domain.model")
@@ -19,7 +40,7 @@ public class ArchitectureTest_Task_2_2 extends BaseArchUnitExerciseTest {
                 .should()
                 .resideInAnyPackage(USECASE, USECASE_IN)
                 .andShould()
-                .onlyDependOnClassesThat()
+                .onlyAccessClassesThat()
                 .resideInAnyPackage(DOMAIN, DOMAIN_MODEL);
         rule.check(classes);
     }

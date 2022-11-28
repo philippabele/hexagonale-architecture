@@ -22,12 +22,12 @@ public class ArchitectureTest_Task_3_3 extends BaseArchUnitExerciseTest {
                 .andShould()
                 .onlyDependOnClassesThat()
                 .resideInAnyPackage(
-                        "..app.vehicle.domain..",
-                        "..app.vehicle.domain.model..",
-                        "..app.vehicle.adapter..",
-                        "..app.vehicle.adapter.in..",
-                        "..app.vehicle.usecase..",
-                        "..app.vehicle.usecase.in..",
+                        "..vehicle.domain..",
+                        "..vehicle.domain.model..",
+                        "..vehicle.adapter..",
+                        "..vehicle.adapter.in..",
+                        "..vehicle.usecase..",
+                        "..vehicle.usecase.in..",
                         JAVA_LANG,
                         JAVA_UTIL,
                         ORG);

@@ -12,8 +12,6 @@ public class VehicleDbEntity {
     private String licensePlate;
     @Column("MILEAGE")
     private Double milage;
-    @Column("REGISTRATION_COUNTRY")
-    private String registrationCountry;
 
     public String getVin() {
         return vin;
@@ -39,11 +37,4 @@ public class VehicleDbEntity {
         this.milage = milage;
     }
 
-    public String getRegistrationCountry() {
-        return registrationCountry;
-    }
-
-    public void setRegistrationCountry(String registrationCountry) {
-        this.registrationCountry = registrationCountry;
-    }
 }

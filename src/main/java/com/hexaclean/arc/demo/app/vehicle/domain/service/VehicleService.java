@@ -9,12 +9,12 @@ import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VehicleQueryService implements VehicleQuery {
+public class VehicleService implements VehicleQuery {
 
     private VehicleDbQuery vehicleDbQuery;
     private FetchVehicleMasterData fetchVehicleMasterData;
 
-    public VehicleQueryService(VehicleDbQuery vehicleDbQuery, FetchVehicleMasterData fetchVehicleMasterData) {
+    public VehicleService(VehicleDbQuery vehicleDbQuery, FetchVehicleMasterData fetchVehicleMasterData) {
         this.vehicleDbQuery = vehicleDbQuery;
         this.fetchVehicleMasterData = fetchVehicleMasterData;
     }
