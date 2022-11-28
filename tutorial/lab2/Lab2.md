@@ -51,7 +51,7 @@ The class-stereotype <i>Controller</i> is the place to
 
 1. Create a <i>VehicleController</i> and place it in the designated package
 2. Implement the REST endpoint <i>/vehicle/{vin}</i> and return a hard-coded vehicle object. Use following method
-   signature and as value for the vin.
+   signature and WP0ZZZ99ZTS392155 as value for the vin.
 
 ```java
 
