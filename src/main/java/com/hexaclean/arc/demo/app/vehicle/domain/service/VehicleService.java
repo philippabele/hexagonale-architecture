@@ -16,8 +16,7 @@ public class VehicleService implements VehicleQuery {
     }
 
     public Vehicle findByVin(Vin vin) {
-        Vehicle vehicle = vehicleDbQuery.findVehicleByVin(vin);
-        return vehicle;
+        return vehicleDbQuery.findVehicleByVin(vin);
     }
 
 }

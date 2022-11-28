@@ -1,38 +1,4 @@
-# Lab 2: Dependency Inversion Principle and the Ports & Adapters Pattern
-
-## Task 2.1: Create a HTTP Input Adapter
-
-The class-stereotype <i>Controller</i> is the place to
-
-* implement HTTP-based inbound into our application,
-* wiring incoming use cases to execute domain functionality and,
-* transform domain-related exceptions to HTTP status codes.
-
-1. Create a <i>VehicleController</i> and place it in the designated package
-2. Implement the REST endpoint <i>/vehicle/{vin}</i> and return a hard-coded vehicle object. Use following method
-   signature
-
-```java
-
-public Vehicle readVehicle(String vin);
-
-```
-
-3. Please ignore spring or any other framework specific annotations
-
-### Verify Your Implementation
-
-1. Move the test _ControllerTestExercise2_1.java_ from _exercises/lab2/two/one_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/two/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ControllerTestExercise2_1.java_
-
-### Verify Your Architecture
-
-1. Move the test _ArchitectureTestExercise2_1.java_ from _exercises/tests/two/one_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/two/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ArchitectureTestExercise2_1.java_
+# Lab 2: Dependency Injection, Dependency Inversion Principle and the Ports & Adapters Pattern
 
 ## Dependency Injection
 
@@ -75,6 +41,26 @@ Both help to reduce coupling in the software architecture.
 
 [Futher informations about dependency injection](https://martinfowler.com/articles/dipInTheWild.html)
 
+## Task 2.1: Create a HTTP Input Adapter and Connect It to the Domain
+
+The class-stereotype <i>Controller</i> is the place to
+
+* implement HTTP-based inbound into our application,
+* wiring incoming use cases to execute domain functionality and,
+* transform domain-related exceptions to HTTP status codes.
+
+1. Create a <i>VehicleController</i> and place it in the designated package
+2. Implement the REST endpoint <i>/vehicle/{vin}</i> and return a hard-coded vehicle object. Use following method
+   signature and as value for the vin.
+
+```java
+
+public Vehicle readVehicle(String vin);
+
+```
+
+3. Please ignore spring or any other framework specific annotations
+
 ## Task 2.2: Query About a Domain Object Using a Use Case
 
 1. Create the incoming use case <i>VehicleQuery</i> with the method
@@ -89,43 +75,18 @@ and place it in the designated package.
 
 3. Replace the hard-coded <i>Vehicle</i> within <i>VehicleController</i> with the usage of <i>VehicleQuery</i>
 4. The dependency between <i>VehicleController</i> and <i>VehicleQuery</i> should be resolved via constructor injection
-5. Implement the incoming usecase <i>VehicleQuery</i> using the right class-stereotype
+5. Implement the incoming usecase <i>VehicleQuery</i> through _VehicleService_
 
 ### Verify Your Implementation
 
-1. Now there must come up a compilation error in _ControllerTestExercise2_1.java_.
-2. Fix the compilation error and execute _ControllerTestExercise2_1.java_ again.
+1. Move the test _InputAdapter_Task_2_1_2_2.java_ from _tutorial/lab2_ to _
+   src/test/java/com/hexaclean/arc/demo/lab/two_
+2. Run _mvn clean install -DskipTests_
+3. Execute _InputAdapter_Task_2_1_2_2.java_
 
 ### Verify Your Architecture
 
-1. Since the usage of _VehicleQuery_ in _VehicleController_, the test _ArchitectureTestExercise2_1.java_ can not be
-   passed anymore
-2. Have a look at the ArchUnit code and try to fix the test. Please notice there are some constants available that gives
-   orientation.
-
-```java
-void http_input_adapter_check(){
-        ArchRule rule=classes()
-        .that().haveSimpleName(CONTROLLER_UNDER_TEST)
-        .should().resideInAnyPackage(ADAPTER,ADAPTER_IN)
-        .andShould().onlyDependOnClassesThat()
-        .resideInAnyPackage(
-        DOMAIN,
-        DOMAIN_MODEL,
-        //which stereotype is allowed to be accessed by the controller?
-        //insert here...
-        //ignore this list elements below
-        ORG,
-        JAVA_LANG,
-        ADAPTER,
-        ADAPTER_IN
-        );
-
-        rule.check(classes);
-        }
-```
-
-[Solution](Exercise2-fix-architecture-test.md)
+Execute _ArchitectureTest_Task_2_1_2_2.java_
 
 ## Dependency Inversion Principle
 
@@ -165,17 +126,14 @@ Vehicle findVehicleByVin(Vin vin);
 
 ### Verify Your Implementation
 
-1. Move the test _RepositoryTestExercise2_3.java_ from _exercises/tests/two/three_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/two/three_
+1. Move the test _OutputAdapter_Task_2_3.java_ from _tutorial/lab2_ to
+   _src/test/java/com/hexaclean/arc/demo/lab/two_
 2. Run _mvn clean install -DskipTests_
-3. Execute _RepositoryTestExercise2_3.java_
+3. Execute _OutputAdapter_Task_2_3.java_
 
 ### Verify Your Architecture
 
-1. Move the test _ArchitectureTestExercise2_3.java_ from _exercises/tests/two/three_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/two/three_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ArchitectureTestExercise2_3.java_
+Execute _ArchitectureTest_Task_2_3.java_
 
 ## Task 2.4: Additional Questions
 

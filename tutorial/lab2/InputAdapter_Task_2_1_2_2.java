@@ -12,7 +12,7 @@ import org.mockito.Mockito;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
-public class InputAdapter_Task_2_1 extends BaseExerciseTest {
+public class InputAdapter_Task_2_1_2_2 extends BaseExerciseTest {
 
     @Test
     @DisplayName("VehicleController should return a valid vehicle")

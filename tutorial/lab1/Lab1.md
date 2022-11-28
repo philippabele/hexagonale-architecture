@@ -125,7 +125,8 @@ Additionally the adapter ring is also separated in sub-structure following the s
 1. Create the root entity (or in DDD also called aggregate) <i>Vehicle</i> and place it in the designated package
 2. Create the value object <i>Vin</i> and place it in the designated package
 3. Ensure that the <i>Vehicle</i> can only be created with a valid vehicle identification number (vin)
-4. A vehicle identification number is valid when the value follows the regex pattern below. Throw an
+4. Override equals, so that the Vehicle is the same object when the VIN is the same
+5. A vehicle identification number is valid when the value follows the regex pattern below. Throw an
    IllegalStateException in case of a validations error.
 
 ```java
@@ -140,17 +141,20 @@ Additionally the adapter ring is also separated in sub-structure following the s
 
 #### Verify your Implementation
 
+In _src/test/java/com/hexaclean/arc/demo/lab/<numer>_ are prepared architecture tests for each lab. Addtionally there
+are unit tests in _tutorial/lab/<number>_. You can check four implementations by copying the unit tests to the source
+folder, add the test to the classpath, and run the test.
+
+With maven you can do it this way:
+
 1. Move the test _DomainRing_Task_1_1.java_ from _tutorial/lab/one_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/one_
+   ssrc/test/java/com/hexaclean/arc/demo/lab/one_
 2. Run _mvn clean install -DskipTests_
 3. Execute _DomainRing_Task_1_1.java_
 
 #### Verify your Architecture
 
-1. Move the test _ArchitectureTest_Task_1_1.java_ from _tutorial/lab/one_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ArchitectureTest_Task_1_1.java_
+Execute _ArchitectureTest_Task_1_1.java_ in the package.
 
 ### Task 1.2 [Optional]: Meet domainprimitives-java
 
@@ -212,18 +216,16 @@ public Vehicle findByVin(Vin vin){...}
 
 ```
 
-Currently, it is enough to return a hard-coded instance of the class <i>Vehicle</i>.
+Currently, it is enough to return a hard-coded instance of the class <i>Vehicle</i>. Use this value for the VIN:
+WP0ZZZ99ZTS392155
 
 #### Verify your Implementation
 
-1. Move the test _DomainRing_Task_1_2.java_ from _tutorial/lab/one_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/one_
+1. Move the test _DomainRing_Task_1_2.java_ from _tutorial/lab/one_ to
+   _src/test/java/com/hexaclean/arc/demo/lab/one_
 2. Run _mvn clean install -DskipTests_
 3. Execute _DomainRing_Task_1_2.java_
 
 #### Verify your Architecture
 
-1. Move the test _ArchitectureTest_Task_1_2.java_ from _tutorial/lab/one_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ArchitectureTest_Task_1_2.java_
+Execute _ArchitectureTest_Task_1_2.java_
