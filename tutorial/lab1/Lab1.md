@@ -1,4 +1,4 @@
-+# Lab 1 Clean Architecture Pattern, Modularization, SOLID and Domain Modules
+# Lab 1 Clean Architecture Pattern, Modularization, SOLID and Domain Modules
 
 ## General Information
 
@@ -24,7 +24,7 @@ infrastructure.
 6. The use case ring connects the infrastructure and the domain.
 7. Use case definitions are driven by domain.
 
-[Solution](Exercise1-true-false-solution.md)
+[Solution](Lab1-true-false-solution.md)
 
 ### Common Closure and Separation of Concerns
 
@@ -118,12 +118,15 @@ Additionally the adapter ring is also separated in sub-structure following the s
 
 ![Package structure variant architectural expressive](../img/architectural-expressive.png)
 
-## Task 1.1: Implement a Self-Validating Domain Model
+## The Domain Ring
+
+### Task 1.1: Implement a Self-Validating Domain Model
 
 1. Create the root entity (or in DDD also called aggregate) <i>Vehicle</i> and place it in the designated package
 2. Create the value object <i>Vin</i> and place it in the designated package
 3. Ensure that the <i>Vehicle</i> can only be created with a valid vehicle identification number (vin)
-4. A vehicle identification number is valid when the value follows the regex pattern below. Throw an
+4. Override equals, so that the Vehicle is the same object when the VIN is the same
+5. A vehicle identification number is valid when the value follows the regex pattern below. Throw an
    IllegalStateException in case of a validations error.
 
 ```java
@@ -136,36 +139,93 @@ Additionally the adapter ring is also separated in sub-structure following the s
 
 ```
 
-### Verify your Implementation
+#### Verify your Implementation
 
-1. Move the test _DomainModelTestExercise1.java_ from _exercises/tests/one_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/one_
+In _src/test/java/com/hexaclean/arc/demo/lab/<numer>_ are prepared architecture tests for each lab. Addtionally there
+are unit tests in _tutorial/lab/<number>_. You can check four implementations by copying the unit tests to the source
+folder, add the test to the classpath, and run the test.
+
+With maven you can do it this way:
+
+1. Move the test _DomainRing_Task_1_1.java_ from _tutorial/lab/one_ to _
+   ssrc/test/java/com/hexaclean/arc/demo/lab/one_
 2. Run _mvn clean install -DskipTests_
-3. Execute _DomainModelTestExercise1.java_
+3. Execute _DomainRing_Task_1_1.java_
 
-## Task 1.2: Creaate the (Domain) Service for the Root Entity
+#### Verify your Architecture
 
-1. Create the (domain) service <i>VehiclesService</i> and place it in the designated package
-2. The <i>VehiclesService</i> should offer following method
+Execute _ArchitectureTest_Task_1_1.java_ in the package.
+
+### Task 1.2 [Optional]: Meet domainprimitives-java
+
+#### For Java and Kotlin Coders
+
+Have a look at [domainprimitives-java](https://github.com/domain-primitives/domain-primitives-java) and compare it to
+the native approach you implemented.
+
+If you want, adapt your implementation. There are all dependencies you need already configured in the pom.xml. Or use
+the following declaration:
+
+```xml
+
+<dependency>
+    <groupId>io.github.domain-primitives</groupId>
+    <artifactId>domainprimitives-java</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
+
+The idea is not unqiue. There are several similiar libraries, like
+
+* https://github.com/albertattard/domain-primitives-api or
+* https://github.com/prashantbasawa/simple-validation-framework
+* etc.
+
+Please notice: There are not evaluated and used from my side.
+
+It exist also concepts in the [java and spring ecosystem](https://reflectoring.io/bean-validation-with-spring-boot/)
+for implementing self-validating domain objects.
+
+#### For Kotlin Coders
+
+There origin idea of [domainprimitives-java](https://github.com/domain-primitives/domain-primitives-java) is based on
+Stefan
+Ludwig's [comparison of strongly typed validation and javax validation](https://github.com/slu-it/technology-examples/tree/master/strongly-typed-vs-javax-validation)
+written in kotlin.
+
+For more details have a look
+into [the domain object Age with native self-validation](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytyped/model/Age.kt)
+as well as
+into [the domain object Age with self-validation based on a DSL](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytypedwithdsl/model/Age.kt)
+.
+
+Look at
+the [validation DSL](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytypedwithdsl/validation/dsl.kt)
+
+Seems this for you a good alternative apporach to your written native validation? If you like, adapt your
+implementation, but consider the time.
+
+### Task 1.3: Create the (Domain) Service for the Root Entity
+
+1. Create the (domain) service <i>VehicleService</i> and place it in the designated package
+2. The <i>VehicleService</i> should offer following method
 
 ```java
 
-public Vehicle readVehicle(Vin vin) {...}
+public Vehicle findByVin(Vin vin){...}
 
 ```
 
-Currently, it is enough to return a hard-coded instance of the class <i>Vehicle</i>.
+Currently, it is enough to return a hard-coded instance of the class <i>Vehicle</i>. Use this value for the VIN:
+WP0ZZZ99ZTS392155
 
-### Verify your Implementation
+#### Verify your Implementation
 
-1. Move the test _DomainServiceTestExercise1.java_ from _exercises/tests/one_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/one_
+1. Move the test _DomainRing_Task_1_2.java_ from _tutorial/lab/one_ to
+   _src/test/java/com/hexaclean/arc/demo/lab/one_
 2. Run _mvn clean install -DskipTests_
-3. Execute _DomainServiceTestExercise1.java_
+3. Execute _DomainRing_Task_1_2.java_
 
-## Verify your Architecture
+#### Verify your Architecture
 
-1. Move the test _ArchitectureTestExercise1.java_ from _exercises/tests/one_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ArchitectureTestExercise1.java_
+Execute _ArchitectureTest_Task_1_2.java_

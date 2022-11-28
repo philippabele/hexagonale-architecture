@@ -12,15 +12,13 @@ public class VehicleToVehicleDbEntityMapper {
                 new Vin(dbEntity.getVin()),
                 new VehicleMotionData(
                         new LicensePlate(dbEntity.getLicensePlate()),
-                        new Mileage(dbEntity.getMilage()),
-                        new RegistrationCountry(dbEntity.getRegistrationCountry())));
+                        new Mileage(dbEntity.getMilage())));
     }
 
     public VehicleDbEntity mapVehicleToVehicleDbEntity(Vehicle vehicle) {
         VehicleDbEntity vehicleDbEntity = new VehicleDbEntity();
         vehicleDbEntity.setVin(vehicle.getVin().value());
         vehicleDbEntity.setMilage(vehicle.getVehicleMotionData().mileage().value());
-        vehicleDbEntity.setRegistrationCountry(vehicle.getVehicleMotionData().registrationCountry().value());
         vehicleDbEntity.setLicensePlate(vehicle.getVehicleMotionData().licensePlate().value());
         return vehicleDbEntity;
     }

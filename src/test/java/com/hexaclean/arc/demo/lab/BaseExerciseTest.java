@@ -36,17 +36,18 @@ public abstract class BaseExerciseTest {
     protected static final String CONTROLLER_UNDER_TEST = "VehicleController";
     protected static final String LICENSE_PLATE_TEST_VALUE = "ES-EM 385";
     protected static final double MILEAGE_TEST_VALUE = 100000;
-    protected static final String REGISTRATION_COUNTRY_TEST_VALUE = "DE-de";
-    public static final String VEHICLE_MODEL_DESCRIPTION_TEST_VALUE = "E30 Limousine";
-    public static final String VEHICLE_MODEL_TYPE_TEST_VALUE = "3er";
-    public static final String SERIAL_NUMBER_TEST_VALUE = "0123456789";
+    protected static final String VEHICLE_MODEL_DESCRIPTION_TEST_VALUE = "E30 Limousine";
+    protected static final String VEHICLE_MODEL_TYPE_TEST_VALUE = "3er";
+    protected static final String SERIAL_NUMBER_TEST_VALUE = "0123456789";
+    protected static final String VEHICLE_DOMAIN = "..vehicle.domain..";
+    protected static final String VEHICLE_DOMAIN_MODEL = "..vehicle.domain.model..";
+    protected static final String IO_GITHUB_DOMAINPRIMITIVES = "..io.github.domainprimitives..";
 
     protected VehicleDbEntity createExpectedVehicleDbEntity() {
         VehicleDbEntity dbEntity = new VehicleDbEntity();
         dbEntity.setVin(VIN);
         dbEntity.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
         dbEntity.setMilage(MILEAGE_TEST_VALUE);
-        dbEntity.setRegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE);
         return dbEntity;
     }
 
@@ -55,7 +56,6 @@ public abstract class BaseExerciseTest {
         resource.setVin(VIN);
         resource.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
         resource.setMileage(Double.valueOf(MILEAGE_TEST_VALUE));
-        resource.setRegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE);
         resource.setVehicleModelType(VEHICLE_MODEL_TYPE_TEST_VALUE);
         resource.setVehicleModelName(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE);
         resource.setMileageUnit(MileageUnitValue.KM.toString());
@@ -77,11 +77,14 @@ public abstract class BaseExerciseTest {
 
     protected Vehicle createExpectedVehicle() {
         Vehicle vehicle = new Vehicle(new Vin(VIN),
-                new VehicleMotionData(new LicensePlate(LICENSE_PLATE_TEST_VALUE),
-                        new Mileage(MILEAGE_TEST_VALUE),
-                        new RegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE)));
+                createExpectedVehicleMotionData());
         vehicle.addVehicleMasterData(createExpectedVehicleMasterData());
         return vehicle;
+    }
+
+    protected VehicleMotionData createExpectedVehicleMotionData() {
+        return new VehicleMotionData(new LicensePlate(LICENSE_PLATE_TEST_VALUE),
+                new Mileage(MILEAGE_TEST_VALUE));
     }
 
     protected VehicleMasterData createExpectedVehicleMasterData() {

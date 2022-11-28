@@ -18,4 +18,10 @@ public class Resource_Task_3_3 extends BaseExerciseTest {
         assertThat(vehicle.getVin()).isEqualTo(VIN);
     }
 
+    protected VehicleResource createExpectedVehicleResource() {
+        VehicleResource vehicle = new VehicleResource();
+        vehicle.setVin(VIN);
+        return vehicle;
+    }
+
 }

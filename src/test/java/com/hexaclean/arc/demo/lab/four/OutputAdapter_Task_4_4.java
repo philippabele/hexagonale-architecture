@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.two;
+package com.hexaclean.arc.demo.lab.four;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.VehicleRepository;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.VehicleToVehicleDbEntityMapper;
@@ -10,13 +10,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class OutputAdapter_Task_2_3 extends BaseExerciseTest {
+public class OutputAdapter_Task_4_4 extends BaseExerciseTest {
 
     @Test
     @DisplayName("The VehicleRepository should return a valid Vehicle")
     void vehicle_and_vin_should_be_created_successful() {
         Vehicle vehicle = findVehicleByVin();
-        assertThat(vehicle).isEqualTo(createExpectedVehicle());
+        Vehicle expectedVehicle = createExpectedVehicle();
+        assertThat(vehicle.getVin()).isEqualTo(expectedVehicle.getVin());
+        assertThat(vehicle.getVehicleMotionData().licensePlate()).isEqualTo(expectedVehicle.getVehicleMotionData().licensePlate());
+        assertThat(vehicle.getVehicleMotionData().mileage()).isEqualTo(expectedVehicle.getVehicleMotionData().mileage());
     }
 
     private Vehicle findVehicleByVin() {

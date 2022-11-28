@@ -22,4 +22,5 @@ public class Mapper_Task_3_3 extends BaseExerciseTest {
     private Vehicle mapVehicleResourceToVehicle(VehicleResource resource) {
         return new VehicleToVehicleResourceMapperImpl().mapVehicleResourceToVehicle(resource);
     }
+
 }

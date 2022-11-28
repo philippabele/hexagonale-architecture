@@ -2,25 +2,25 @@ package com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.EquipmentDto;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.EquipmentListDto;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.VehicleDataDto;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.MileageUnitValue;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.VehicleMasterData;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 import com.hexaclean.arc.demo.app.vehicle.usecase.out.FetchVehicleMasterData;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.VehicleDataDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleMasterDataServiceClient implements FetchVehicleMasterData {
 
-    private VehicleToVehicleDtoMapper mapper;
+    private VehicleToVehicleDataDtoMapper mapper;
 
     private static final String VEHICLE_MODEL_DESCRIPTION_TEST_VALUE = "E30 Limousine";
     private static final String VEHICLE_MODEL_TYPE_TEST_VALUE = "3er";
     private static final String SERIAL_NUMBER_TEST_VALUE = "0123456789";
     private static final String VIN = "WP0ZZZ99ZTS392155";
 
-    public VehicleMasterDataServiceClient(VehicleToVehicleDtoMapper mapper) {
+    public VehicleMasterDataServiceClient(VehicleToVehicleDataDtoMapper mapper) {
         this.mapper = mapper;
     }
 

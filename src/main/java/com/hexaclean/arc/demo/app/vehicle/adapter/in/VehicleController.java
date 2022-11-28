@@ -1,8 +1,8 @@
 package com.hexaclean.arc.demo.app.vehicle.adapter.in;
 
+import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 import com.hexaclean.arc.demo.app.vehicle.usecase.in.VehicleQuery;
-import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
 
 //@RestController
 //@RequestMapping("/vehicles")

@@ -6,11 +6,11 @@ public record VehicleMasterData(List<Equipment> equipmentList, VehicleModel vehi
                                 SerialNumber serialNumber, MileageUnit mileageUnit) {
 
     public VehicleMasterData {
-        if(equipmentList == null || equipmentList.isEmpty()) {
+        if (equipmentList == null || equipmentList.isEmpty()) {
             throw new IllegalStateException("Equipment list should not null or empty");
         }
 
-        if(vehicleModel == null || serialNumber == null || mileageUnit == null) {
+        if (vehicleModel == null || serialNumber == null || mileageUnit == null) {
             throw new IllegalStateException("One or more of VehicleModel, SerialNumber oer MileageUnit are null");
         }
     }

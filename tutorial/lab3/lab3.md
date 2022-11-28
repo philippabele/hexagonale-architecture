@@ -2,16 +2,16 @@
 
 ## Mappings Between Boundaries
 
-Currently, the _Vehicle_ is the model of the application, and it is not separated from infrastructure. 
-In conclusion the idea of ports and adapters is not consequently followed. 
-The missing element to fully decoupled domain and infrastructure is a _mapping between these boundaries_.
+Currently, the _Vehicle_ is the model of the application, and it is not separated from infrastructure. In conclusion the
+idea of ports and adapters is not consequently followed. The missing element to fully decoupled domain and
+infrastructure is a _mapping between these boundaries_.
 
 ---
 **Mapping**
 
-Mappings between boundaries describes a transformation of the state of a source entity model to 
-a target entity model. The following code snippets shows an example of different entity model, 
-where for example the _baumuster_ of _VehicleDto_ must be mapped on the the property 
+Mappings between boundaries describes a transformation of the state of a source entity model to a target entity model.
+The following code snippets shows an example of different entity model, where for example the _baumuster_ of _
+VehicleDto_ must be mapped on the the property
 _modelDescription_ of _Vehicle_.
 
 ```java
@@ -96,7 +96,8 @@ Change comes fast and unexpected. But for sure - it comes! Domain-related change
 * changing business model,
 * new consumers, and so on.
 
-Since we cannot foresee change, we must look ahead and act. On an architectural level, this means that we have to **apply**
+Since we cannot foresee change, we must look ahead and act. On an architectural level, this means that we have to **
+apply**
 **architecture** and **design** **principle** that **enables** **change**.
 
 The idea of ports and adapters is a powerful pattern to support change based on the decoupling of domain and
@@ -119,54 +120,53 @@ public class VehicleDbEntity {
 
 ```
 
-### Verify your implementation
+### Verify Your Implementation
 
-1. Move the test _DbEntityTestExercise3_1.java_ from _exercises/tests/three/one_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/three/one_
+1. Move the test _DbEntity_Task_3_1.java_ from _tutorial/lab/three_ to _
+   src/test/java/com/hexaclean/arc/demo/lab/three_
 2. Run _mvn clean install -DskipTests_
-3. Execute _DbEntityTestExercise3_1.java_
+3. Execute _DbEntity_Task_3_1.java_
 
 ### Verify Your Architecture
 
-1. Move the test _DbEntityArchitectureTestExercise3_1.java_ from _exercises/tests/three/one_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/three/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _DbEntityArchitectureTestExercise3_1.java_
+Execute _ArchitectureTest_Task_3_1.java_
 
 ## Task 3:2: Extend the VehicleRepository and Introduce a Mapper
 
 1. Add the private method _findVehicleDbEntity_ to _VehicleRepository_ which returns a hard coded _VehicleDbEntity_
 2. Use _findVehicleDbEntity_ in the existing public method _findVehicleByVin_ and replace the hard code _Vehicle_
    creation
+
 ```java
 
 private VehicleDbEntity findVehicleDbEntity{ //... }
 
 ```
+
 As a result you have a compiltation error.
 
 3. Remember the responsibilities of the class stereotype repository. Which source code elements do you expected in the
-class _VehicleRepository_? **Make a list**.
-[Solution](lab3-repository-solution.md)
+   class _VehicleRepository_? **Make a list**.
+   [Solution](lab3-repository-solution.md)
 
 4. Introduce the _VehicleToVehicleDbEntityMapper_ with the following method and fix the compilation error.
+
 ```java
-public Vehicle mapVehicleDbEntityToVehicle(VehicleDbEntity dbEntity) {
-    //...   
-}
+public Vehicle mapVehicleDbEntityToVehicle(VehicleDbEntity dbEntity){
+        //...   
+        }
 ```
 
-### Verify your implementation
+### Verify your Implementation
 
-1. Now there must come up a compilation error in _RepositoryTestExercise2_3.java_.
-2. Fix the compilation error and execute _RepositoryTestExercise2_3.java_ again.
+1. Move the tests _Mapper_Task_3_2.java_ and _OutputAdapter_Task_3_2 from _tutorial/lab/three_ to _
+   src/test/java/com/hexaclean/arc/demo/lab/three_
+2. Run _mvn clean install -DskipTests_
+3. Execute _Mapper_Task_3_2.java_ and _OutputAdapter_Task_3_2
 
 ### Verify Your Architecture
 
-1. Move the test _ArchitectureTestExercise2_3.java_ from _exercises/tests/two/one_ to _
-   src/test/java/com/daimler/dcp/clean/arc/demo/exercise/two/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ArchitectureTestExercise2_3.java_
+Execute _ArchitectureTest_Task_3_2.java_
 
 ## Task 3.3: Extend the VehicleController with a Resource and a Mapper
 
@@ -189,3 +189,14 @@ Sources for MapStruct:
 * [Custom Mapper with MapStruct](https://www.baeldung.com/mapstruct-custom-mapper)
 * [MapStruct Reference Guide Version 1.5.3](https://mapstruct.org/documentation/stable/reference/html/)
 * [Other sources](https://mapstruct.org/community/other-resources/)
+
+### Verify your Implementation
+
+1. Move the tests _Mapper_Task_3_3.java_ and _InputAdapter_Task_3_3 from _tutorial/lab/three_ to _
+   src/test/java/com/hexaclean/arc/demo/lab/three_
+2. Run _mvn clean install -DskipTests_
+3. Execute _Mapper_Task_3_3.java_ and _InputAdapter_Task_3_3
+
+### Verify Your Architecture
+
+Execute _ArchitectureTest_Task_3_3.java_

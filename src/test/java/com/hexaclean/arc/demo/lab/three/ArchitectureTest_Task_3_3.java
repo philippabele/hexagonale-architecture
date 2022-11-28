@@ -26,7 +26,7 @@ public class ArchitectureTest_Task_3_3 extends BaseArchUnitExerciseTest {
                         "..vehicle.domain.model..",
                         "..vehicle.adapter..",
                         "..vehicle.adapter.in..",
-                "..vehicle.usecase..",
+                        "..vehicle.usecase..",
                         "..vehicle.usecase.in..",
                         JAVA_LANG,
                         JAVA_UTIL,

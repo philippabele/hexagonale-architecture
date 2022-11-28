@@ -1,11 +1,10 @@
 package com.hexaclean.arc.demo.app.vehicle.adapter.out.db;
 
-import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
-import com.hexaclean.arc.demo.app.vehicle.usecase.in.VehicleQuery;
-import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.LicensePlate;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
+import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
+import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -41,7 +40,6 @@ public class VehicleRepository implements VehicleDbQuery {
         dbEntity.setVin(VIN);
         dbEntity.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
         dbEntity.setMilage(MILEAGE_TEST_VALUE);
-        dbEntity.setRegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE);
         return dbEntity;
     }
 }

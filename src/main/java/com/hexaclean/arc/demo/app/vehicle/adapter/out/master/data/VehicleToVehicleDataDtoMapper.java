@@ -6,7 +6,7 @@ import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
 
 import java.util.stream.Collectors;
 
-public class VehicleToVehicleDtoMapper {
+public class VehicleToVehicleDataDtoMapper {
 
     public VehicleMasterData mapVehicleDtoToVehicleMasterData(VehicleDataDto dto) {
         return new VehicleMasterData(
