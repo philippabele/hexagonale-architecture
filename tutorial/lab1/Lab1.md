@@ -125,7 +125,8 @@ Additionally the adapter ring is also separated in sub-structure following the s
 1. Create the root entity (or in DDD also called aggregate) <i>Vehicle</i> and place it in the designated package
 2. Create the value object <i>Vin</i> and place it in the designated package
 3. Ensure that the <i>Vehicle</i> can only be created with a valid vehicle identification number (vin)
-4. A vehicle identification number is valid when the value follows the regex pattern below. Throw an
+4. Override equals, so that the Vehicle is the same object when the VIN is the same
+5. A vehicle identification number is valid when the value follows the regex pattern below. Throw an
    IllegalStateException in case of a validations error.
 
 ```java
@@ -140,35 +141,43 @@ Additionally the adapter ring is also separated in sub-structure following the s
 
 #### Verify your Implementation
 
+In _src/test/java/com/hexaclean/arc/demo/lab/<numer>_ are prepared architecture tests for each lab. 
+Addtionally there are unit tests in _tutorial/lab/<number>_.
+You can check four implementations by copying the unit tests
+to the source folder, add the test to the classpath, and run the test.
+
+With maven you can do it this way:
+
 1. Move the test _DomainRing_Task_1_1.java_ from _tutorial/lab/one_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/one_
+   ssrc/test/java/com/hexaclean/arc/demo/lab/one_
 2. Run _mvn clean install -DskipTests_
 3. Execute _DomainRing_Task_1_1.java_
 
 #### Verify your Architecture
 
-1. Move the test _ArchitectureTest_Task_1_1.java_ from _tutorial/lab/one_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ArchitectureTest_Task_1_1.java_
+Execute _ArchitectureTest_Task_1_1.java_ in the package.
 
 ### Task 1.2 [Optional]: Meet domainprimitives-java
 
 #### For Java and Kotlin Coders
 
-Have a look at [domainprimitives-java](https://github.com/domain-primitives/domain-primitives-java) and
-compare it to the native approach you implemented.
+Have a look at [domainprimitives-java](https://github.com/domain-primitives/domain-primitives-java) and compare it to
+the native approach you implemented.
 
-If you want, adapt your implementation. There are all dependencies you need already configured in the pom.xml. Or use the following declaration:
+If you want, adapt your implementation. There are all dependencies you need already configured in the pom.xml. Or use
+the following declaration:
 
 ```xml
+
 <dependency>
-   <groupId>io.github.domain-primitives</groupId>
-   <artifactId>domainprimitives-java</artifactId>
-   <version>0.1.0</version>
+    <groupId>io.github.domain-primitives</groupId>
+    <artifactId>domainprimitives-java</artifactId>
+    <version>0.1.0</version>
 </dependency>
 ```
-The idea is not unqiue. There are several similiar libraries, like 
+
+The idea is not unqiue. There are several similiar libraries, like
+
 * https://github.com/albertattard/domain-primitives-api or
 * https://github.com/prashantbasawa/simple-validation-framework
 * etc.
@@ -181,39 +190,43 @@ for implementing self-validating domain objects.
 #### For Kotlin Coders
 
 There origin idea of [domainprimitives-java](https://github.com/domain-primitives/domain-primitives-java) is based on
-Stefan Ludwig's [comparison of strongly typed validation and javax validation](https://github.com/slu-it/technology-examples/tree/master/strongly-typed-vs-javax-validation) written in kotlin. 
+Stefan
+Ludwig's [comparison of strongly typed validation and javax validation](https://github.com/slu-it/technology-examples/tree/master/strongly-typed-vs-javax-validation)
+written in kotlin.
 
-For more details have a look into [the domain object Age with native self-validation](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytyped/model/Age.kt)
-as well as into [the domain object Age with self-validation based on a DSL](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytypedwithdsl/model/Age.kt).
+For more details have a look
+into [the domain object Age with native self-validation](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytyped/model/Age.kt)
+as well as
+into [the domain object Age with self-validation based on a DSL](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytypedwithdsl/model/Age.kt)
+.
 
-Look at the [validation DSL](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytypedwithdsl/validation/dsl.kt)
+Look at
+the [validation DSL](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytypedwithdsl/validation/dsl.kt)
 
-Seems this for you a good alternative apporach to your written native validation? If you like, adapt your implementation, but consider the time.
+Seems this for you a good alternative apporach to your written native validation? If you like, adapt your
+implementation, but consider the time.
 
 ### Task 1.3: Create the (Domain) Service for the Root Entity
 
 1. Create the (domain) service <i>VehicleService</i> and place it in the designated package
 2. The <i>VehicleService</i> should offer following method
 
-
 ```java
 
-public Vehicle readVehicle(Vin vin) {...}
+public Vehicle findByVin(Vin vin){...}
 
 ```
 
 Currently, it is enough to return a hard-coded instance of the class <i>Vehicle</i>.
+Use this VIN: WP0ZZZ99ZTS392155
 
 #### Verify your Implementation
 
-1. Move the test _DomainRing_Task_1_2.java_ from _tutorial/lab/one_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/one_
+1. Move the test _DomainRing_Task_1_2.java_ from _tutorial/lab/one_ to
+   _src/test/java/com/hexaclean/arc/demo/lab/one_
 2. Run _mvn clean install -DskipTests_
 3. Execute _DomainRing_Task_1_2.java_
 
 #### Verify your Architecture
 
-1. Move the test _ArchitectureTest_Task_1_2.java_ from _tutorial/lab/one_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/one_
-2. Run _mvn clean install -DskipTests_
-3. Execute _ArchitectureTest_Task_1_2.java_
+Execute _ArchitectureTest_Task_1_2.java_

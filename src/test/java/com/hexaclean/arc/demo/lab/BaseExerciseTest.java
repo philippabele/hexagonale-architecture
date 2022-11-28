@@ -14,7 +14,7 @@ public abstract class BaseExerciseTest {
     protected static final String JAVA_LANG = "..java.lang..";
     protected static final String ROOT_ENTITY_UNDER_TEST = "Vehicle";
     protected static final String DB_ENTITY_UNDER_TEST = "VehicleDbEntity";
-    protected static final String SERVICE_UNDER_TEST = "VehicleQueryService";
+    protected static final String SERVICE_UNDER_TEST = "VehicleService";
     protected static final String VALUE_OBJECT_UNDER_TEST = "Vin";
     protected static final String JAVA_UTIL = "..java.util..";
     protected static final String ORG = "..org..";
@@ -26,7 +26,7 @@ public abstract class BaseExerciseTest {
     protected static final String USECASE_OUT = "..usecase.out..";
     protected static final String USECASE_OUT_QUERY_UNDER_TEST = "VehicleDbQuery";
     protected static final String USECASE_IN_QUERY_UNDER_TEST = "VehicleQuery";
-    protected static final String REPOSITORY_UNDER_TEST = "VehicleQueryRepository";
+    protected static final String REPOSITORY_UNDER_TEST = "VehicleRepository";
     protected static final String ADAPTER_OUT = "..adapter.out..";
     protected static final String CONTROLLER_UNDER_TEST = "VehicleController";
     protected static final String LICENSE_PLATE_TEST_VALUE = "ES-EM 385";
