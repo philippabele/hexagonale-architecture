@@ -56,7 +56,7 @@ public class ArchitectureTest_Task_2_3 extends BaseArchUnitExerciseTest {
                 .should()
                 .resideInAnyPackage(ADAPTER, ADAPTER_OUT)
                 .andShould()
-                .onlyDependOnClassesThat()
+                .onlyAccessClassesThat()
                 .resideInAnyPackage(ADAPTER, ADAPTER_OUT, USECASE_OUT, USECASE, DOMAIN, DOMAIN_MODEL, JAVA_LANG, JAVA_UTIL, ORG);
         rule.check(classes);
     }

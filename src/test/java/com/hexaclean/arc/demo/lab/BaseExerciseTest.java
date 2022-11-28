@@ -4,6 +4,7 @@ import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.EquipmentDto;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.VehicleDataDto;
+import com.hexaclean.arc.demo.app.vehicle.domain.dto.VehicleMasterDataDomainDto;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
 
 import java.util.ArrayList;
@@ -36,17 +37,19 @@ public abstract class BaseExerciseTest {
     protected static final String CONTROLLER_UNDER_TEST = "VehicleController";
     protected static final String LICENSE_PLATE_TEST_VALUE = "ES-EM 385";
     protected static final double MILEAGE_TEST_VALUE = 100000;
-    protected static final String REGISTRATION_COUNTRY_TEST_VALUE = "DE-de";
-    public static final String VEHICLE_MODEL_DESCRIPTION_TEST_VALUE = "E30 Limousine";
-    public static final String VEHICLE_MODEL_TYPE_TEST_VALUE = "3er";
-    public static final String SERIAL_NUMBER_TEST_VALUE = "0123456789";
+    protected static final String VEHICLE_MODEL_DESCRIPTION_TEST_VALUE = "E30 Limousine";
+    protected static final String VEHICLE_MODEL_TYPE_TEST_VALUE = "3er";
+    protected static final String SERIAL_NUMBER_TEST_VALUE = "0123456789";
+    protected static final List<String> EQUIPMENT_LIST = Arrays.asList("CU897", "DK564", "KL457");
+    protected static final String VEHICLE_DOMAIN = "..vehicle.domain..";
+    protected static final String VEHICLE_DOMAIN_MODEL = "..vehicle.domain.model..";
+    protected static final String IO_GITHUB_DOMAINPRIMITIVES = "..io.github.domainprimitives..";
 
     protected VehicleDbEntity createExpectedVehicleDbEntity() {
         VehicleDbEntity dbEntity = new VehicleDbEntity();
         dbEntity.setVin(VIN);
         dbEntity.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
         dbEntity.setMilage(MILEAGE_TEST_VALUE);
-        dbEntity.setRegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE);
         return dbEntity;
     }
 
@@ -55,7 +58,6 @@ public abstract class BaseExerciseTest {
         resource.setVin(VIN);
         resource.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
         resource.setMileage(Double.valueOf(MILEAGE_TEST_VALUE));
-        resource.setRegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE);
         resource.setVehicleModelType(VEHICLE_MODEL_TYPE_TEST_VALUE);
         resource.setVehicleModelName(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE);
         resource.setMileageUnit(MileageUnitValue.KM.toString());
@@ -76,18 +78,37 @@ public abstract class BaseExerciseTest {
 
     protected Vehicle createExpectedVehicle() {
         Vehicle vehicle = new Vehicle(new Vin(VIN),
-                new VehicleMotionData(new LicensePlate(LICENSE_PLATE_TEST_VALUE),
-                        new Mileage(MILEAGE_TEST_VALUE),
-                        new RegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE)));
+                createExpectedVehicleMotionData());
         VehicleMasterData masterData = createExpectedVehicleMasterData();
-        vehicle.addVehicleMasterData(masterData.vehicleModel(), masterData.serialNumber(), masterData.mileageUnit(), Arrays.asList("CU897", "DK564", "KL457"));
+        vehicle.addVehicleMasterData(masterData.vehicleModel(), masterData.serialNumber(), masterData.mileageUnit(), EQUIPMENT_LIST);
         return vehicle;
+    }
+
+    protected VehicleMotionData createExpectedVehicleMotionData() {
+        return new VehicleMotionData(new LicensePlate(LICENSE_PLATE_TEST_VALUE),
+                new Mileage(MILEAGE_TEST_VALUE));
     }
 
     protected VehicleMasterData createExpectedVehicleMasterData() {
         return new VehicleMasterData(
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
+    }
+
+    protected VehicleMasterDataDomainDto createExpectedVehicleMasterDataDomainDto() {
+        return new VehicleMasterDataDomainDto(
+                EQUIPMENT_LIST,
+                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
+                new MileageUnit(MileageUnitValue.KM),
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE));
+    }
+
+    protected VehicleMasterDataDomainDto createExpectedVehicleMasterDataDomainDtoHas2G() {
+        return new VehicleMasterDataDomainDto(
+                Arrays.asList("CU897", "DK564", "GS200"),
+                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
+                new MileageUnit(MileageUnitValue.KM),
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE));
     }
 
 

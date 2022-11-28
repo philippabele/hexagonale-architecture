@@ -37,7 +37,6 @@ public class VehicleQueryRepository implements VehicleDbQuery {
         dbEntity.setVin(VIN);
         dbEntity.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
         dbEntity.setMilage(MILEAGE_TEST_VALUE);
-        dbEntity.setRegistrationCountry(REGISTRATION_COUNTRY_TEST_VALUE);
         return dbEntity;
     }
 }
