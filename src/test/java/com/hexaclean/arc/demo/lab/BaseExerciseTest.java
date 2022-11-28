@@ -1,7 +1,5 @@
 package com.hexaclean.arc.demo.lab;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 
@@ -36,17 +34,6 @@ public abstract class BaseExerciseTest {
     public static final String VEHICLE_MODEL_TYPE_TEST_VALUE = "3er";
     public static final String SERIAL_NUMBER_TEST_VALUE = "0123456789";
 
-    protected VehicleDbEntity createVehicleDbEntity() {
-        VehicleDbEntity dbEntity = new VehicleDbEntity();
-        dbEntity.setVin(VIN);
-        return dbEntity;
-    }
-
-    protected VehicleResource createExpectedVehicleResource() {
-        VehicleResource vehicle = new VehicleResource();
-        vehicle.setVin(VIN);
-        return vehicle;
-    }
 
     protected Vehicle createExpectedVehicle() {
         return new Vehicle(new Vin(VIN));

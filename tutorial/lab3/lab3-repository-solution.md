@@ -12,9 +12,9 @@ public class VehicleRepository implements VehicleDbQuery {
 
     private VehicleToVehicleDbEntityMapper mapper;
     private SqlSource sqlSource;
-    
+
     private final static String VEHICLE_QUERY = "SELECT * FROM VEHICLE_TBL";
-    
+
     public VehicleRepository(VehicleToVehicleDbEntityMapper mapper, SqlSource sqlSource) {
         this.mapper = mapper;
         this.sqlSource = sqlSource; //a fake sql source

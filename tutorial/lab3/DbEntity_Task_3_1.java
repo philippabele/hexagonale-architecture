@@ -1,7 +1,6 @@
 package com.hexaclean.arc.demo.lab.three;
 
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,4 +17,9 @@ public class DbEntity_Task_3_1 extends BaseExerciseTest {
         assertThat(vehicle.getVin()).isEqualTo(VIN);
     }
 
+    private VehicleDbEntity createVehicleDbEntity() {
+        VehicleDbEntity dbEntity = new VehicleDbEntity();
+        dbEntity.setVin(VIN);
+        return dbEntity;
+    }
 }

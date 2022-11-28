@@ -1,7 +1,6 @@
 package com.hexaclean.arc.demo.lab.three;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleToVehicleResourceMapperImpl;
-import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
@@ -22,4 +21,11 @@ public class Mapper_Task_3_3 extends BaseExerciseTest {
     private Vehicle mapVehicleResourceToVehicle(VehicleResource resource) {
         return new VehicleToVehicleResourceMapperImpl().mapVehicleResourceToVehicle(resource);
     }
+
+    protected VehicleResource createExpectedVehicleResource() {
+        VehicleResource vehicle = new VehicleResource();
+        vehicle.setVin(VIN);
+        return vehicle;
+    }
+
 }

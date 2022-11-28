@@ -1,7 +1,5 @@
 package com.hexaclean.arc.demo.lab.three;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.VehicleToVehicleDbEntityMapper;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
@@ -21,5 +19,11 @@ public class Mapper_Task_3_2 extends BaseExerciseTest {
 
     private Vehicle mapVehicleDbEntityToVehicle(VehicleDbEntity dbEntity) {
         return new VehicleToVehicleDbEntityMapper().mapVehicleDbEntityToVehicle(dbEntity);
+    }
+
+    private VehicleDbEntity createVehicleDbEntity() {
+        VehicleDbEntity dbEntity = new VehicleDbEntity();
+        dbEntity.setVin(VIN);
+        return dbEntity;
     }
 }

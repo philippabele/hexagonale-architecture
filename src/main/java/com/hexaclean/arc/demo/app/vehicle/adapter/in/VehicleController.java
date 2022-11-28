@@ -1,6 +1,6 @@
 package com.hexaclean.arc.demo.app.vehicle.adapter.in;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
+import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 import com.hexaclean.arc.demo.app.vehicle.usecase.in.VehicleQuery;
 
@@ -9,16 +9,14 @@ import com.hexaclean.arc.demo.app.vehicle.usecase.in.VehicleQuery;
 public class VehicleController {
 
     private VehicleQuery vehicleQuery;
-    private VehicleToVehicleResourceMapper mapper;
 
-    public VehicleController(VehicleQuery vehicleQuery, VehicleToVehicleResourceMapper mapper) {
+    public VehicleController(VehicleQuery vehicleQuery) {
         this.vehicleQuery = vehicleQuery;
-        this.mapper = mapper;
     }
 
     //@GetMapping("/{vin}")
-    public VehicleResource readVehicle(/*@PathVariable("vin")*/ String vin) {
-        return mapper.mapVehicleToVehicleResource(vehicleQuery.findByVin(new Vin(vin)));
+    public Vehicle readVehicle(/*@PathVariable("vin")*/ String vin) {
+        return vehicleQuery.findByVin(new Vin(vin));
     }
 
 }
