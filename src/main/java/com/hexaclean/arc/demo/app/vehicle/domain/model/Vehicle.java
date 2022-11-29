@@ -10,6 +10,7 @@ public class Vehicle {
     private Vin vin;
     private VehicleMotionData vehicleMotionData;
     private VehicleMasterData vehicleMasterData;
+    private List<Equipment> equipmentList;
     private Boolean has2GSupport;
 
     public Vehicle(Vin vin, VehicleMotionData vehicleMotionData) {
@@ -21,16 +22,16 @@ public class Vehicle {
     }
 
     @Default
-    public Vehicle(Vin vin, VehicleMotionData vehicleMotionData, VehicleMasterData vehicleMasterData, boolean has2GSupport) {
+    public Vehicle(Vin vin, VehicleMotionData vehicleMotionData, VehicleMasterData vehicleMasterData) {
         this(vin, vehicleMotionData);
-        this.has2GSupport = has2GSupport;
         this.vehicleMasterData = vehicleMasterData;
+        determineHas2GSupport(this.vehicleMasterData.equipmentList());
         validateVehicleMasterData();
     }
 
-    private void determineHas2GSupport(List<String> equipmentCodes) {
-        this.has2GSupport = equipmentCodes.stream()
-                .filter(code -> code.equals("GS200"))
+    private void determineHas2GSupport(List<Equipment> equipmentList) {
+        this.has2GSupport = equipmentList.stream()
+                .filter(e -> e.code().value().equals("GS200"))
                 .findAny()
                 .isPresent();
     }
@@ -70,8 +71,12 @@ public class Vehicle {
         }
     }
 
-    public void addVehicleMasterData(VehicleModel vehicleModel, SerialNumber serialNumber, MileageUnit mileageUnit, List<String> equipmentCodes) {
-        this.vehicleMasterData = new VehicleMasterData(vehicleModel, serialNumber, mileageUnit);
-        determineHas2GSupport(equipmentCodes);
+    public void addVehicleMasterData(VehicleMasterData vehicleMasterData) {
+        this.vehicleMasterData = vehicleMasterData;
+        determineHas2GSupport(this.vehicleMasterData.equipmentList());
+    }
+
+    public List<Equipment> getEquipmentList() {
+        return equipmentList;
     }
 }

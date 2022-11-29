@@ -20,8 +20,8 @@ public class VehicleController {
 
     public VehicleController(VehicleQuery vehicleQuery, VehicleToVehicleResourceMapper mapper, VehicleCommand vehicleCommand) {
         this.vehicleQuery = vehicleQuery;
-        this.mapper = mapper;
         this.vehicleCommand = vehicleCommand;
+        this.mapper = mapper;
     }
 
     //@GetMapping("/{vin}")

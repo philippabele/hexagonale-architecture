@@ -4,7 +4,8 @@ public record VehicleMotionData(LicensePlate licensePlate, Mileage mileage) {
 
     public VehicleMotionData {
         if (licensePlate == null || mileage == null) {
-            throw new IllegalStateException("One or more of License plate, mileage or registration country are null");
+            throw new IllegalStateException("One or more of License plate or mileage are null");
         }
     }
+
 }

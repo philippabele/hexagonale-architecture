@@ -8,7 +8,7 @@ import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VehicleRepository implements VehicleDbQuery {
+public class VehicleQueryRepository implements VehicleDbQuery {
 
     private VehicleToVehicleDbEntityMapper mapper;
 
@@ -17,7 +17,7 @@ public class VehicleRepository implements VehicleDbQuery {
     private static final double MILEAGE_TEST_VALUE = 100000;
     private static final String REGISTRATION_COUNTRY_TEST_VALUE = "DE-de";
 
-    public VehicleRepository(VehicleToVehicleDbEntityMapper mapper) {
+    public VehicleQueryRepository(VehicleToVehicleDbEntityMapper mapper) {
         this.mapper = mapper;
     }
 

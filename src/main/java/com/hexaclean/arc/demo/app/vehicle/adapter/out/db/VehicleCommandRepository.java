@@ -9,11 +9,14 @@ import org.springframework.stereotype.Component;
 public class VehicleCommandRepository implements VehicleDbCommand {
 
     private VehicleToVehicleDbEntityMapper mapper;
-    private VehicleCrudRepository vehicleCrudRepository;
 
-    public VehicleCommandRepository(VehicleToVehicleDbEntityMapper mapper, VehicleCrudRepository vehicleCrudRepository) {
+    private static final String VIN = "WP0ZZZ99ZTS392155";
+    private static final String LICENSE_PLATE_TEST_VALUE = "ES-EM 385";
+    private static final double MILEAGE_TEST_VALUE = 100000;
+    private static final String REGISTRATION_COUNTRY_TEST_VALUE = "DE-de";
+
+    public VehicleCommandRepository(VehicleToVehicleDbEntityMapper mapper) {
         this.mapper = mapper;
-        this.vehicleCrudRepository = vehicleCrudRepository;
     }
 
     @Override
@@ -23,6 +26,13 @@ public class VehicleCommandRepository implements VehicleDbCommand {
     }
 
     private VehicleDbEntity technicalSaveWithSqlStuff(Vehicle vehicle) {
-        return vehicleCrudRepository.save(mapper.mapVehicleToVehicleDbEntity(vehicle));
+        //INSERT INTO ...
+        // UPDATE ...
+        // jdbcRepository.save(mapper.mapVehicleToVehicleDbEntity(vehicle));
+        VehicleDbEntity dbEntity = new VehicleDbEntity();
+        dbEntity.setVin(VIN);
+        dbEntity.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
+        dbEntity.setMilage(MILEAGE_TEST_VALUE);
+        return dbEntity;
     }
 }

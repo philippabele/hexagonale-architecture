@@ -1,7 +1,9 @@
 package com.hexaclean.arc.demo.app.vehicle.domain.model;
 
+import java.util.List;
+
 public record VehicleMasterData(VehicleModel vehicleModel,
-                                SerialNumber serialNumber, MileageUnit mileageUnit) {
+                                SerialNumber serialNumber, MileageUnit mileageUnit, List<Equipment> equipmentList) {
 
     public VehicleMasterData {
 
