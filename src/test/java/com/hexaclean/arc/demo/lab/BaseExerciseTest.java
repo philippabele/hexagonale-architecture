@@ -1,5 +1,7 @@
 package com.hexaclean.arc.demo.lab;
 
+import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.EquipmentResource;
+import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleMotionDataResource;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.EquipmentDto;
@@ -10,6 +12,7 @@ import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class BaseExerciseTest {
 
@@ -63,6 +66,14 @@ public abstract class BaseExerciseTest {
         resource.setMileageUnit(MileageUnitValue.KM.toString());
         resource.setVin(VIN);
         resource.setSerialNumber(SERIAL_NUMBER_TEST_VALUE);
+        resource.setEquipmentList(createEquipmentList().stream().map(this::mapToEquipmentResource).collect(Collectors.toList()));
+        return resource;
+    }
+
+    private EquipmentResource mapToEquipmentResource(Equipment equipment) {
+        EquipmentResource resource = new EquipmentResource();
+        resource.setDescription(equipment.description());
+        resource.setCode(equipment.code().value());
         return resource;
     }
 
@@ -80,8 +91,20 @@ public abstract class BaseExerciseTest {
         Vehicle vehicle = new Vehicle(new Vin(VIN),
                 createExpectedVehicleMotionData());
         VehicleMasterData masterData = createExpectedVehicleMasterData();
-        vehicle.addVehicleMasterData(masterData.vehicleModel(), masterData.serialNumber(), masterData.mileageUnit(), EQUIPMENT_LIST);
+        vehicle.addVehicleMasterData(masterData);
         return vehicle;
+    }
+
+    private List<Equipment> createEquipmentList() {
+        return createEquipmentListDto().stream().map(e -> new Equipment(new EquipmentCode(e.getCode()), e.getLabel()))
+                .collect(Collectors.toList());
+    }
+
+    protected List<Equipment> createEquipmentListHas2G() {
+        List<Equipment> equipmentList = createEquipmentListDto().stream().map(e -> new Equipment(new EquipmentCode(e.getCode()), e.getLabel()))
+                .collect(Collectors.toList());
+        equipmentList.add(new Equipment(new EquipmentCode("GS200"), "2GSupportAdapter"));
+        return equipmentList;
     }
 
     protected VehicleMotionData createExpectedVehicleMotionData() {
@@ -89,10 +112,23 @@ public abstract class BaseExerciseTest {
                 new Mileage(MILEAGE_TEST_VALUE));
     }
 
+    protected VehicleMotionDataResource createExpectedVehicleMotionDataResource() {
+        VehicleMotionDataResource resource = new VehicleMotionDataResource();
+        resource.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
+        resource.setMileage(MILEAGE_TEST_VALUE);
+        return resource;
+    }
+
     protected VehicleMasterData createExpectedVehicleMasterData() {
         return new VehicleMasterData(
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
-                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM), createEquipmentList());
+    }
+
+    protected VehicleMasterData createExpectedVehicleMasterDataHas2G() {
+        return new VehicleMasterData(
+                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
+                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM), createEquipmentListHas2G());
     }
 
     protected VehicleMasterDataDomainDto createExpectedVehicleMasterDataDomainDto() {

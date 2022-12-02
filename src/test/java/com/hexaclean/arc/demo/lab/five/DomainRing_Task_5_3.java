@@ -1,8 +1,8 @@
 package com.hexaclean.arc.demo.lab.five;
 
 
-import com.hexaclean.arc.demo.app.vehicle.domain.dto.VehicleMasterDataDomainDto;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
+import com.hexaclean.arc.demo.app.vehicle.domain.model.VehicleMasterData;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
@@ -18,8 +18,8 @@ public class DomainRing_Task_5_3 extends BaseExerciseTest {
     void the_vehicle_supports_2G() {
         Vin vin = new Vin(VIN);
         Vehicle vehicle = new Vehicle(vin, createExpectedVehicleMotionData());
-        VehicleMasterDataDomainDto masterData = createExpectedVehicleMasterDataDomainDtoHas2G();
-        vehicle.addVehicleMasterData(masterData.vehicleModel(), masterData.serialNumber(), masterData.mileageUnit(), masterData.equipmentList());
+        VehicleMasterData masterData = createExpectedVehicleMasterDataHas2G();
+        vehicle.addVehicleMasterData(masterData);
         assertThat(vehicle.getVin()).isEqualTo(vin);
         assertThat(vehicle.isHas2GSupport()).isTrue();
     }
@@ -30,8 +30,8 @@ public class DomainRing_Task_5_3 extends BaseExerciseTest {
     void the_vehicle_supports_not_2G() {
         Vin vin = new Vin(VIN);
         Vehicle vehicle = new Vehicle(vin, createExpectedVehicleMotionData());
-        VehicleMasterDataDomainDto masterData = createExpectedVehicleMasterDataDomainDto();
-        vehicle.addVehicleMasterData(masterData.vehicleModel(), masterData.serialNumber(), masterData.mileageUnit(), masterData.equipmentList());
+        VehicleMasterData masterData = createExpectedVehicleMasterData();
+        vehicle.addVehicleMasterData(masterData);
         assertThat(vehicle.getVin()).isEqualTo(vin);
         assertThat(vehicle.isHas2GSupport()).isFalse();
     }

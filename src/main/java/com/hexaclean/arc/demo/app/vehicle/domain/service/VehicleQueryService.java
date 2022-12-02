@@ -28,11 +28,7 @@ public class VehicleQueryService implements VehicleQuery, FindVehicleByLicensePl
     }
 
     private void enrichWithVehicleMasterData(Vehicle vehicle) {
-        VehicleMasterDataDomainDto masterDataDomainDto = fetchVehicleMasterData.fetch(vehicle.getVin());
-        vehicle.addVehicleMasterData(masterDataDomainDto.vehicleModel(),
-                masterDataDomainDto.serialNumber(),
-                masterDataDomainDto.mileageUnit(),
-                masterDataDomainDto.equipmentList());
+        vehicle.addVehicleMasterData(fetchVehicleMasterData.fetch(vehicle.getVin()));
     }
 
     @Override

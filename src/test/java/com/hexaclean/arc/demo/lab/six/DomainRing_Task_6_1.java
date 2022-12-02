@@ -25,7 +25,7 @@ public class DomainRing_Task_6_1 extends BaseExerciseTest {
         when(vehicleDbQuery.findVehicleByLicensePlate(new LicensePlate(LICENSE_PLATE_TEST_VALUE))).thenReturn(createExpectedVehicle());
 
         FetchVehicleMasterData fetchVehicleMasterData = Mockito.mock(FetchVehicleMasterData.class);
-        when(fetchVehicleMasterData.fetch(vin)).thenReturn(createExpectedVehicleMasterDataDomainDto());
+        when(fetchVehicleMasterData.fetch(vin)).thenReturn(createExpectedVehicleMasterData());
 
         Vehicle expectedVehicle = createExpectedVehicle();
         Vehicle vehicle = new VehicleQueryService(vehicleDbQuery, fetchVehicleMasterData).findByLicensePlate(expectedVehicle.getVehicleMotionData().licensePlate());
