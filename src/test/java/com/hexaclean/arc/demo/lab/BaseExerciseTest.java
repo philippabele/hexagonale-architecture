@@ -1,10 +1,5 @@
 package com.hexaclean.arc.demo.lab;
 
-import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class BaseExerciseTest {
 
     protected static final String ROOT_PACKAGE = "com.hexaclean.arc.demo";
