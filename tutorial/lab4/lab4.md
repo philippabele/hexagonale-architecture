@@ -5,19 +5,24 @@
 Implement the additional domain objects that belongs to the root entity _Vehicle_, like described in the following uml
 class diagram.
 
-ADD DIAGRAM
+![Vehicle domain model](../img/vehicle-domain-model.png)
 
 Implement the following self-validation domain objects:
 
-|Domain object| Validation Rule| |LicensePlate| [A-ZÖÜÄ]{1,3}-[A-ZÖÜÄ]{1,2} [1-9]{1}[0-9]{1,3}| |EquipmentCode| [A-Z]
-{2}[0-9]{3}| |Mileage| no negative value (mileage >= 0) |
+| Domain object |               Validation Rule                |
+| ------- |:--------------------------------------------:|
+|LicensePlate|[A-ZÖÜÄ]{1,3}-[A-ZÖÜÄ]{1,2} [1-9]{1}[0-9]{1,3}| 
+|EquipmentCode|               [A-Z]{2}[0-9]{3}               |         
+|Mileage|       no negative value (mileage >= 0)       |
 
 Investigate and understand the whole root entity _Vehicle_.
 
 Following rules are given for creating a _Vehicle_ object:
 
-|VehicleMotionData| All fields are mandatory, all values must fulfil the validation rules | |Vehicle| Needs a valid vin
-and valid vehicle motion data |
+| Domain object | Validation Rule|
+| ------------- |:--------------:|
+|VehicleMotionData| All fields are mandatory, all values must fulfil the validation rules |
+|Vehicle| Needs a valid vin and valid vehicle motion data |
 
 ### Verify your Implementation
 
@@ -35,7 +40,7 @@ Execute _ArchitectureTest_Task_4_1.java_
 Extend the _VehicleResource_ like described as follows and adapt the _VehicleController_ and the _
 VehicleToVehicleResourceMapper_.
 
-ADD DIAGRAM
+![Vehicle resource](../img/vehicle-resource.png)
 
 ### Verify your Implementation
 
@@ -54,8 +59,8 @@ There are some constraints given by the company context. There is one central pl
 source needed master data must be queried.
 
 Due to this you have to introduce the _VehicleMasterDataServiceClient_ and create the adapter implementation with the
-name _VehicleMasterDataToVehiceDtoMapper_. For this task the external data object _VehicleDataDto_ (package _
-vehicle/adapter/out/dto_) and the outgoing use case FetchVehicleMasterData (package _vehicle/usecase/out_) already
+name _VehicleMasterDataToVehiceDtoMapper_. For this task the external data object _VehicleDataDto_ (package 
+_vehicle/adapter/out/dto_) and the outgoing use case FetchVehicleMasterData (package _vehicle/usecase/out_) already
 exists.
 
 The external API returns returns a lot of information we do not need in our domain. This is visible in the _
@@ -80,7 +85,9 @@ Execute all architecture tests
 
 In the own database we store the vehicle motion data and other informations that not belongs to vehicle master data.
 
-Extend the _VehicleDbEntity_ like described as follows and the _VehicleToVehicleDbEntityMapper_.
+Extend the _VehicleDbEntity_ and the _VehicleToVehicleDbEntityMapper_ as described in the diagram.
+
+![Vehicle db entity](../img/vehicle-db-entity.png)
 
 ### Verify your Implementation
 
