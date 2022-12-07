@@ -9,7 +9,7 @@ several consumers.
 
 ![Dependency injection](../img/di.png)
 
-Relevant types of dependency injection by example:
+Relevant types of dependency injection by example with java and spring:
 
 ```java
 
@@ -36,8 +36,8 @@ public class Consumer {
 
 In short, the goal of dependency injection is to reduce the coupling between a consumer and provider class by the
 externalization of object creation and management of the object's lifecycle. So consumers can only focus on the usage of
-this dependency. In combination with interfaces, the consumer will be decoupled from a provider-specific implementation.
-Both help to reduce coupling in the software architecture.
+this dependency. In combination with interfaces, the consumer will be decoupled from a provider-specific implementation. Both things
+reduces the coupling between the involved classes.
 
 [Futher informations about dependency injection](https://martinfowler.com/articles/dipInTheWild.html)
 
@@ -53,17 +53,37 @@ The class-stereotype <i>Controller</i> is the place to
 2. Implement the REST endpoint <i>/vehicle/{vin}</i> and return a hard-coded vehicle object. Use following method
    signature and WP0ZZZ99ZTS392155 as value for the vin.
 
+**Java**
+
 ```java
 
-public Vehicle readVehicle(String vin);
+public Vehicle readVehicle(String vin) {...}
 
 ```
 
-3. Please ignore spring or any other framework specific annotations
+**Kotlin**
+
+```kotlin
+
+fun readVehicle(vin: String): Vehicle {...}
+
+```
+
+**C#**
+
+```java
+
+public VehicleRootEntity ReadVehicle(string vin) {...} 
+
+```
+
+3. Please ignore any framework specific annotations and configurations
 
 ## Task 2.2: Query About a Domain Object Using a Use Case
 
 1. Create the incoming use case <i>VehicleQuery</i> with the method
+
+**Java**
 
 ```java
 
@@ -71,36 +91,49 @@ Vehicle findByVin(Vin vin);
 
 ```
 
+**Kotlin**
+
+```kotlin
+
+fun findByVin(vin: Vin): Vehicle
+
+```
+
+**C#**
+
+```java
+
+VehicleRootEntity FindByVin(string vin) {...} 
+
+```
+
 and place it in the designated package.
 
 3. Replace the hard-coded <i>Vehicle</i> within <i>VehicleController</i> with the usage of <i>VehicleQuery</i>
-4. The dependency between <i>VehicleController</i> and <i>VehicleQuery</i> should be resolved via constructor injection
+4. The dependency between <i>VehicleController</i> and <i>VehicleQuery</i> should be resolved via _constructor injection_
 5. Implement the incoming usecase <i>VehicleQuery</i> through _VehicleService_
 
 ### Verify Your Implementation
 
-1. Move the test _InputAdapter_Task_2_1_2_2.java_ from _tutorial/lab2_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/two_
-2. Run _mvn clean install -DskipTests_
-3. Execute _InputAdapter_Task_2_1_2_2.java_
+**RUN** _InputAdapter_Task_2_1_2_2_
 
 ### Verify Your Architecture
 
-Execute _ArchitectureTest_Task_2_1_2_2.java_
+**RUN** _ArchitectureTest_Task_2_1_2_2_
 
 ## Dependency Inversion Principle
 
 The dependency inversion principle says:
 
 ---
-Abstractions should not depend on details. Details should depend on abstractions.
+_Abstractions should not depend on details. Details should depend on abstractions._
 
 The _VehicleService_ is a concrete implementation. This means it is a detail. Following the dependency inversion
-principle, the _VehicleService should depend on an abstraction e.g. an interface. This interface will be implemented by
+principle, the _VehicleService_ should depend on an abstraction e.g. an interface. This interface will be implemented by
 the provider of a functionality. As a result, there is no direct dependency on a specific implementation. The dependency
 is inverted.
 
-![Dependency inversion principle](../img/dip.png)
+![Dependency Inversion Principle](../img/dip.png)
 
 ## Task 2.3: Introduce a Outgoing Use Case and Create a Database Adapter
 
@@ -112,28 +145,41 @@ The class-stereotype <i>Repository</i> is the place to
 * handle sql errors.
 
 1. Create the outgoing usecase <i>VehicleDbQuery</i> with the method
-
+**Java**
 ```java
 
 Vehicle findVehicleByVin(Vin vin);
 
 ```
 
+**Kotlin**
+
+```kotlin
+
+fun findVehicleByVin(vin: Vin): Vehicle
+
+```
+
+**C#**
+
+```java
+
+VehicleRootEntity FindVehicleByVin(Vin vin) {...} 
+
+```
+
 2. Create the repository <i>VehicleRepository</i> and place it in the designated package
 3. The repository should implement <i>VehicleDbQuery</i> and should return a hard-coded <i>Vehicle</i> instance
 5. Replace the hard-coded <i>Vehicle</i> within <i>VehicleService</i> with the usage of <i>VehicleDbQuery</i>
-6. The dependency between <i>VehicleService</i> and <i>VehicleDbQuery</i> should be resolved via constructor injection
+6. The dependency between <i>VehicleService</i> and <i>VehicleDbQuery</i> should be resolved via _constructor injection_
 
 ### Verify Your Implementation
 
-1. Move the test _OutputAdapter_Task_2_3.java_ from _tutorial/lab2_ to
-   _src/test/java/com/hexaclean/arc/demo/lab/two_
-2. Run _mvn clean install -DskipTests_
-3. Execute _OutputAdapter_Task_2_3.java_
+**RUN** _OutputAdapter_Task_2_3_
 
 ### Verify Your Architecture
 
-Execute _ArchitectureTest_Task_2_3.java_
+**RUN** _ArchitectureTest_Task_2_3_
 
 ## Task 2.4: Additional Questions
 
