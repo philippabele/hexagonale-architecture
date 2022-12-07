@@ -97,8 +97,7 @@ Change comes fast and unexpected. But for sure - it comes! Domain-related change
 * new consumers, and so on.
 
 Since we cannot foresee change, we must look ahead and act. On an architectural level, this means that we have to **
-apply**
-**architecture** and **design** **principle** that **enables** **change**.
+apply** **architecture** and **design** **principle** that **enables** **change**.
 
 The idea of ports and adapters is a powerful pattern to support change based on the decoupling of domain and
 infrastructure. Each of them can grow, modernize and tested independently.
@@ -107,7 +106,7 @@ infrastructure. Each of them can grow, modernize and tested independently.
 
 1. Create the class <i>VehicleDbEntity</i> and place it in the designated package
 2. Ignore framework specific annotations like discussed in the previous lab
-
+**Java**
 ```java
 
 public class VehicleDbEntity {
@@ -119,30 +118,60 @@ public class VehicleDbEntity {
 }
 
 ```
+**Kotlin**
+```kotlin
+
+class VehicleDbEntity {
+    
+    //id
+    var vin: String? = null
+
+}
+
+```
+**C#**
+```java
+
+public class VehicleDbEntity {
+
+    //id
+    private string Vin {get; set;};
+
+}
+
+```
 
 ### Verify Your Implementation
 
-1. Move the test _DbEntity_Task_3_1.java_ from _tutorial/lab/three_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/three_
-2. Run _mvn clean install -DskipTests_
-3. Execute _DbEntity_Task_3_1.java_
+**RUN** _DbEntity_Task_3_1_
 
 ### Verify Your Architecture
 
-Execute _ArchitectureTest_Task_3_1.java_
+**RUN** _ArchitectureTest_Task_3_1_
 
 ## Task 3:2: Extend the VehicleRepository and Introduce a Mapper
 
 1. Add the private method _findVehicleDbEntity_ to _VehicleRepository_ which returns a hard coded _VehicleDbEntity_
 2. Use _findVehicleDbEntity_ in the existing public method _findVehicleByVin_ and replace the hard code _Vehicle_
    creation
-
+**Java**
 ```java
 
-private VehicleDbEntity findVehicleDbEntity{ //... }
+private VehicleDbEntity findVehicleDbEntity(Vin vin){ ... }
 
 ```
+**Kotlin**
+```kotlin
 
+private fun findVehicleDbEntity(vin: Vin): VehicleDbEntity {...}
+
+```
+**C#**
+```java
+
+private VehicleDbEntity FindVehicleDbEntity(Vin vin){ ... }
+
+```
 As a result you have a compiltation error.
 
 3. Remember the responsibilities of the class stereotype repository. Which source code elements do you expected in the
@@ -150,31 +179,50 @@ As a result you have a compiltation error.
    [Solution](lab3-repository-solution.md)
 
 4. Introduce the _VehicleToVehicleDbEntityMapper_ with the following method and fix the compilation error.
-
+   **Java**
 ```java
-public Vehicle mapVehicleDbEntityToVehicle(VehicleDbEntity dbEntity){
-        //...   
-        }
+public Vehicle mapVehicleDbEntityToVehicle(VehicleDbEntity dbEntity){...}
 ```
+**Kotlin**
+```kotlin
 
+fun mapVehicleDbEntityToVehicle(dbEntity: VehicleDbEntity): Vehicle{...}
+
+```
+**C#**
+```java
+
+public VehicleRootEntity MapVehicleDbEntityToVehicle(VehicleDbEntity dbEntity){...}
+
+```
 ### Verify your Implementation
 
-1. Move the tests _Mapper_Task_3_2.java_ and _OutputAdapter_Task_3_2 from _tutorial/lab/three_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/three_
-2. Run _mvn clean install -DskipTests_
-3. Execute _Mapper_Task_3_2.java_ and _OutputAdapter_Task_3_2
+**RUN** _Mapper_Task_3_2_
+**RUN** _OutputAdapter_Task_3_2_
 
 ### Verify Your Architecture
 
-Execute _ArchitectureTest_Task_3_2.java_
+**RUN** _ArchitectureTest_Task_3_2_
 
 ## Task 3.3: Extend the VehicleController with a Resource and a Mapper
 
 1. Change the method _Vehicle readVehicle(String vin)_ to
-
+**Java**
 ```java
 
-VehicleResource readVehicle(String vin);
+public VehicleResource readVehicle(String vin);
+
+```
+**Kotlin**
+```java
+
+fun readVehicle(vin: String): VehicleResource;
+
+```
+**C#**
+```java
+
+public VehicleResource ReadVehicle(string vin);
 
 ```
 
@@ -183,6 +231,8 @@ Now a compilation error occur in the _VehicleController_.
 1. Implement the class _VehicleResource_ and,
 2. a mapper class with the name _VehicleToVehicleResourceMapper_ which uses MapStruct
 
+**Java & Kotlin**
+
 Sources for MapStruct:
 
 * [MapStruct Basics](https://www.baeldung.com/mapstruct)
@@ -190,13 +240,17 @@ Sources for MapStruct:
 * [MapStruct Reference Guide Version 1.5.3](https://mapstruct.org/documentation/stable/reference/html/)
 * [Other sources](https://mapstruct.org/community/other-resources/)
 
+**C#**
+
+Sources for AutoMapper:
+* [AutoMapper Tutorial](https://dotnettutorials.net/lesson/automapper-in-c-sharp/)
+* [AutoMapper Documentation](https://docs.automapper.org/en/stable/index.html)
+
 ### Verify your Implementation
 
-1. Move the tests _Mapper_Task_3_3.java_ and _InputAdapter_Task_3_3 from _tutorial/lab/three_ to _
-   src/test/java/com/hexaclean/arc/demo/lab/three_
-2. Run _mvn clean install -DskipTests_
-3. Execute _Mapper_Task_3_3.java_ and _InputAdapter_Task_3_3
+**RUN** _Mapper_Task_3_3_
+**RUN** _InputAdapter_Task_3_3_
 
 ### Verify Your Architecture
 
-Execute _ArchitectureTest_Task_3_3.java_
+**RUN** _ArchitectureTest_Task_3_3_
