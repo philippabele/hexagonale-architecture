@@ -185,7 +185,7 @@ public Vehicle findByVin(Vin vin){...}
 
 ```kotlin
 
-fun Vehicle findByVin(Vin vin){...}
+fun findByVin(vin:  Vin): Vehicle{...}
 
 ```
 
