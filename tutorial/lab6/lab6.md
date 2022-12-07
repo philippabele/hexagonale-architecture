@@ -42,6 +42,7 @@ In this lab we meet three alternative solution strategies to handle dependencies
 
 1. Introduce a additional incoming use case in the domain module _Vehicle_ with the name _FetchVehicleByLicensePlate_ that
    contains the following method:
+
 **Java**
 ```java
 Vehicle fetchByLicensePlate(Vin vin);
