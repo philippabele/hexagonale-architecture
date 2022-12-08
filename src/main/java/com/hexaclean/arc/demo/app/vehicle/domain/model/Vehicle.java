@@ -10,7 +10,6 @@ public class Vehicle {
     private Vin vin;
     private VehicleMotionData vehicleMotionData;
     private VehicleMasterData vehicleMasterData;
-    private List<Equipment> equipmentList;
     private Boolean has2GSupport;
 
     public Vehicle(Vin vin, VehicleMotionData vehicleMotionData) {
@@ -76,7 +75,4 @@ public class Vehicle {
         determineHas2GSupport(this.vehicleMasterData.equipmentList());
     }
 
-    public List<Equipment> getEquipmentList() {
-        return equipmentList;
-    }
 }
