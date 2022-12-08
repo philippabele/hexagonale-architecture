@@ -4,8 +4,7 @@ import java.util.List;
 
 public class VehicleResource {
     private String vin;
-    private String licensePlate;
-    private double mileage;
+
     private String mileageUnit;
     private String vehicleModelName;
     private String vehicleModelType;
@@ -18,14 +17,6 @@ public class VehicleResource {
 
     public void setVin(String vin) {
         this.vin = vin;
-    }
-
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
     }
 
     public String getMileageUnit() {
@@ -42,14 +33,6 @@ public class VehicleResource {
 
     public void setVehicleModelName(String vehicleModelName) {
         this.vehicleModelName = vehicleModelName;
-    }
-
-    public double getMileage() {
-        return mileage;
-    }
-
-    public void setMileage(double mileage) {
-        this.mileage = mileage;
     }
 
     public String getSerialNumber() {

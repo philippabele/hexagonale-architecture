@@ -26,11 +26,11 @@ Following rules are given for creating a _Vehicle_ object:
 
 ### Verify your Implementation
 
-**RUN** _DomainRing_Task_4_1.java_
+**RUN** _DomainRing_Task_4_1_
 
 ### Verify Your Architecture
 
-****RUN**** _ArchitectureTest_Task_4_1.java_
+****RUN**** _ArchitectureTest_Task_4_1_
 
 ## Task 4.2: Extend the VehicleResource and the Mapper
 
@@ -41,7 +41,7 @@ VehicleToVehicleResourceMapper_.
 
 ### Verify your Implementation
 
-**RUN** _InputAdapter_Task_4_2.java_
+**RUN** _InputAdapter_Task_4_2_
 
 ### Verify Your Architecture
 
@@ -65,7 +65,7 @@ _VehicleMasterData_ domain object. Have a look at the _VehicleDataDto_ and imple
 
 ### Verify your Implementation
 
-**RUN** _OutputAdapter_Task_4_3.java_
+**RUN** _OutputAdapter_Task_4_3_
 
 ### Verify Your Architecture
 
@@ -82,7 +82,7 @@ Extend the _VehicleDbEntity_ and the _VehicleToVehicleDbEntityMapper_ as describ
 
 ### Verify your Implementation
 
-**RUN** _OutputAdapter_Task_4_4.java_
+**RUN** _OutputAdapter_Task_4_4_
 
 ### Verify Your Architecture
 
@@ -94,10 +94,6 @@ Extend the _VehicleService_ so that
 
 * vehicle motion data will be queried from database, and
 * vehicle master data will be queried from a external API
-
-Implement the orchestration of different outgoing use case like described in following sequence diagram:
-
-ADD DIAGRAM
 
 ### Verify your Implementation
 

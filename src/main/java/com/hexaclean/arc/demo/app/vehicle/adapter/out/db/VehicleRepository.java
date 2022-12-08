@@ -1,7 +1,6 @@
 package com.hexaclean.arc.demo.app.vehicle.adapter.out.db;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
-import com.hexaclean.arc.demo.app.vehicle.domain.model.LicensePlate;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery;

@@ -1,7 +1,5 @@
 package com.hexaclean.arc.demo.lab.four;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.VehicleMasterDataServiceClient;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.VehicleToVehicleDataDtoMapper;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.VehicleMasterData;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
