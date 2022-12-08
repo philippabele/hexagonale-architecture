@@ -4,7 +4,6 @@ import com.hexaclean.arc.demo.app.garage.order.adapter.out.vehicle.VehicleModule
 import com.hexaclean.arc.demo.app.garage.order.adapter.out.vehicle.VehicleToOriginVehicleMapper;
 import com.hexaclean.arc.demo.app.garage.order.domain.model.vehicle.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.LicensePlate;
-import com.hexaclean.arc.demo.app.vehicle.usecase.in.FindVehicleByLicensePlate;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
