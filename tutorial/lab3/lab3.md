@@ -248,7 +248,12 @@ Sources for AutoMapper:
 
 ### Verify your Implementation
 
+**Only Java**
+
 **RUN** _Mapper_Task_3_3_
+
+**All**
+
 **RUN** _InputAdapter_Task_3_3_
 
 ### Verify Your Architecture
