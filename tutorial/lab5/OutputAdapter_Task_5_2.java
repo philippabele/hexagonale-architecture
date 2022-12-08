@@ -1,6 +1,5 @@
 package com.hexaclean.arc.demo.lab.five;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.VehicleCommandRepository;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.VehicleToVehicleDbEntityMapper;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;

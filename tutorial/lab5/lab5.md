@@ -280,7 +280,7 @@ the behaviour within the domain model.
 
 **RUN** all architecture tests
 
-## Task 5.4: Hold the Domain Model Clean with Full Mapping Strategy
+## (Optional) Task 5.4: Hold the Domain Model Clean with Full Mapping Strategy
 
 Let's change the scenario a little. For our domain the equipment list is not relevant. We need this only to
 determine the enriched domain value  _has2GSupport_.

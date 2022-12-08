@@ -10,7 +10,7 @@ public class VehicleResource {
     private String vehicleModelName;
     private String vehicleModelType;
     private String serialNumber;
-    private boolean has2GSupport;
+
     private List<EquipmentResource> equipmentList;
 
     public String getLicensePlate() {
@@ -67,14 +67,6 @@ public class VehicleResource {
 
     public void setVehicleModelType(String vehicleModelType) {
         this.vehicleModelType = vehicleModelType;
-    }
-
-    public boolean isHas2GSupport() {
-        return has2GSupport;
-    }
-
-    public void setHas2GSupport(boolean has2GSupport) {
-        this.has2GSupport = has2GSupport;
     }
 
     public List<EquipmentResource> getEquipmentList() {

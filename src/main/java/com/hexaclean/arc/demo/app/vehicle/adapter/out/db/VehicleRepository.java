@@ -8,16 +8,15 @@ import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbQuery;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VehicleQueryRepository implements VehicleDbQuery {
+public class VehicleRepository implements VehicleDbQuery {
 
     private VehicleToVehicleDbEntityMapper mapper;
 
     private static final String VIN = "WP0ZZZ99ZTS392155";
     private static final String LICENSE_PLATE_TEST_VALUE = "ES-EM 385";
     private static final double MILEAGE_TEST_VALUE = 100000;
-    private static final String REGISTRATION_COUNTRY_TEST_VALUE = "DE-de";
 
-    public VehicleQueryRepository(VehicleToVehicleDbEntityMapper mapper) {
+    public VehicleRepository(VehicleToVehicleDbEntityMapper mapper) {
         this.mapper = mapper;
     }
 

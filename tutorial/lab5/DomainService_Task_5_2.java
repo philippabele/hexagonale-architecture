@@ -1,8 +1,6 @@
 package com.hexaclean.arc.demo.lab.five;
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
-import com.hexaclean.arc.demo.app.vehicle.domain.service.VehicleCommandService;
-import com.hexaclean.arc.demo.app.vehicle.usecase.out.VehicleDbCommand;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

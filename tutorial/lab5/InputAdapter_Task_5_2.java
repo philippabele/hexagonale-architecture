@@ -4,7 +4,6 @@ import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleController;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleToVehicleResourceMapperImpl;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
-import com.hexaclean.arc.demo.app.vehicle.usecase.in.VehicleCommand;
 import com.hexaclean.arc.demo.app.vehicle.usecase.in.VehicleQuery;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
