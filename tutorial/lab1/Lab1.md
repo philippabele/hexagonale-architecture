@@ -16,8 +16,8 @@ infrastructure.
 **True or false?**
 
 1. The infrastructure provides interfaces which the domain can implement.
-2. Adapter implementations (also known as adapters) are located within the infrastructure ring and are responsible to integrate
-   and access infrastructure components (e.g. file system, http in- and outbound).
+2. Adapter implementations (also known as adapters) are located within the infrastructure ring and are responsible to
+   integrate and access infrastructure components (e.g. file system, http in- and outbound).
 3. The domain only depends on use cases located in the use case ring.
 4. The domain provides interfaces which will be implemented by adapters.
 5. Use case definitions are driven by adapters.
@@ -37,8 +37,9 @@ affects all the classes in that package and no other package._
 Some people also say that the _common closure principle_ describes the _single responsibility principle_ for packages.
 The reason is that the same kind of changes is in most cases related to functional or domain-related requirements.
 
-The conclusion is that the package should be sliced vertically by domain object and functions (e.g. _vehicle_ or _vehicle data management_) and not
-horizontally by technical characteristics (e.g. _controller_ or _services_). There is another principle, the so-called 
+The conclusion is that the package should be sliced vertically by domain object and functions (e.g. _vehicle_ or _
+vehicle data management_) and not horizontally by technical characteristics (e.g. _controller_ or _services_). There is
+another principle, the so-called
 _separation of concerns_, which describes the same idea.
 
 _Separation of concerns_:
@@ -54,10 +55,9 @@ so that the complexity of each chunk can be handled easier.
 The single responsibility principle says:
 
 ---
-_There should never be more than one reason for a class to change!_ 
+_There should never be more than one reason for a class to change!_
 
 _-Tom DeMarco & Meilir Page-Jones_
-
 
 In comparison to the common closure principle and separation of concerns, which affects the package level, the single
 responsibility principle affects the class level.
@@ -73,9 +73,9 @@ This is also the case for the other principles of SOLID. SOLID stands for
 During the training, we discuss the principles highlighted in bold and also some others that not belongs to SOLID
 directly.
 
-An associated goal is to separate technical and domain-related aspects within the common closure ( or in other words the _domain module_). This
-could be reached by class-stereotypes containing a clear task, that this stereotype has to do. For the clean
-architecture pattern class-stereotypes can look like follows:
+An associated goal is to separate technical and domain-related aspects within the common closure ( or in other words
+the _domain module_). This could be reached by class-stereotypes containing a clear task, that this stereotype has to
+do. For the clean architecture pattern class-stereotypes can look like follows:
 
 ![Class stereotypes of clean architecture pattern](../img/stereotypes-within-common-closure.png)
 
@@ -102,8 +102,8 @@ The _domain module_ is structured simple according to the rings of the clean arc
 
 ### Architectural Expressive Domain
 
-In this variant the _use case ring_ is separated in incoming (_in_) and outgoing (_out_) use cases. Addtionalliy, the _domain ring_ is
-separared in _service_ and _model_.
+In this variant the _use case ring_ is separated in incoming (_in_) and outgoing (_out_) use cases. Addtionalliy, the _
+domain ring_ is separared in _service_ and _model_.
 
 ![Package structure variant architectural expressive domain](../img/architectural-expressive-domain.png)
 
@@ -153,20 +153,20 @@ In this package structure variant the adapter ring is also structured according 
 The project comes with a first architecture test. Additionally, the tutorials' folder contains unit test for each coding
 task.
 
-Copy the unit test and after implementing a task to the prepared test folder structure, build the project and run the tests.
-Fix the implementation when neccessary.
+Copy the unit test and after implementing a task to the prepared test folder structure, build the project and run the
+tests. Fix the implementation when neccessary.
 
-In test folder of the project there is a prepared package structure. In  are prepared architecture tests for each lab. 
+In test folder of the project there is a prepared package structure. In are prepared architecture tests for each lab.
 Addtionally there are unit tests in _tutorial/lab/<number>_.
 
-You can check four implementations by copying the unit tests
-to the source folder, add the test to the classpath, and run the test.
+You can check four implementations by copying the unit tests to the source folder, add the test to the classpath, and
+run the test.
 
 **RUN** _DomainRing_Task_1_1_
 
 #### Verify your Architecture
 
-**RUN** _ArchitectureTest_Task_1_1_ 
+**RUN** _ArchitectureTest_Task_1_1_
 
 ### Task 1.2: Create the (Domain) Service for the Root Entity
 
@@ -185,7 +185,9 @@ public Vehicle findByVin(Vin vin){...}
 
 ```kotlin
 
-fun findByVin(vin: Vin): Vehicle{...}
+fun findByVin(vin: Vin): Vehicle {
+    ...
+}
 
 ```
 
@@ -197,8 +199,7 @@ public VehicleRootEntity FindByVin(Vin vin){...}
 
 ```
 
-Currently, it is enough to return a hard-coded instance of the class <i>Vehicle</i>.
-Use this VIN: WP0ZZZ99ZTS392155
+Currently, it is enough to return a hard-coded instance of the class <i>Vehicle</i>. Use this VIN: WP0ZZZ99ZTS392155
 
 #### Verify your Implementation
 
@@ -252,10 +253,10 @@ into [the domain object Age with self-validation based on a DSL](https://github.
 Look at
 the [validation DSL](https://github.com/slu-it/technology-examples/blob/master/strongly-typed-vs-javax-validation/src/main/kotlin/example/stronglytypedwithdsl/validation/dsl.kt)
 
-Seems this for you a good alternative approach to your native validation? If you like, adapt your
-implementation, but consider the time.
+Seems this for you a good alternative approach to your native validation? If you like, adapt your implementation, but
+consider the time.
 
 #### For C# Coders
 
-Do you know similiar approaches like _domainprimitives-java_? Discuss this in a _Breakout Room_ and maybe used this
-in your implementation.
+Do you know similiar approaches like _domainprimitives-java_? Discuss this in a _Breakout Room_ and maybe used this in
+your implementation.

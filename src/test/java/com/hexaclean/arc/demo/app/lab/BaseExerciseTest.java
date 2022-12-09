@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab;
+package com.hexaclean.arc.demo.app.lab;
 
 public abstract class BaseExerciseTest {
 

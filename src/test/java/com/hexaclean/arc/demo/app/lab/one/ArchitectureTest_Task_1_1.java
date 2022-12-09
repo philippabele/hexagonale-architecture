@@ -1,7 +1,7 @@
-package com.hexaclean.arc.demo.lab.one;
+package com.hexaclean.arc.demo.app.lab.one;
 
 
-import com.hexaclean.arc.demo.lab.BaseArchUnitExerciseTest;
+import com.hexaclean.arc.demo.app.lab.BaseArchUnitExerciseTest;
 import com.tngtech.archunit.lang.ArchRule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

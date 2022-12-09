@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab;
+package com.hexaclean.arc.demo.app.lab;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
