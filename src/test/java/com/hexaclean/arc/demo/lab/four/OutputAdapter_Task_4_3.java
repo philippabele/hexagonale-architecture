@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.four;
+/*package com.hexaclean.arc.demo.lab.four;
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.VehicleMasterData;
@@ -27,4 +27,4 @@ public class OutputAdapter_Task_4_3 extends BaseExerciseTest {
         assertThat(vehicleMasterData.equipmentList()).hasSize(3);
     }
 
-}
+}*/

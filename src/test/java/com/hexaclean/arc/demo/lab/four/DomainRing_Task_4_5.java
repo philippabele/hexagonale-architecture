@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.four;
+/*package com.hexaclean.arc.demo.lab.four;
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
@@ -41,3 +41,4 @@ public class DomainRing_Task_4_5 extends BaseExerciseTest {
     }
 
 }
+*/

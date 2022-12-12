@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.four;
+/*package com.hexaclean.arc.demo.lab.four;
 
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
@@ -95,4 +95,4 @@ public class DomainRing_Task_4_1 extends BaseExerciseTest {
         assertThrows(Exception.class, () -> new EquipmentCode("test"));
     }
 
-}
+}*/
