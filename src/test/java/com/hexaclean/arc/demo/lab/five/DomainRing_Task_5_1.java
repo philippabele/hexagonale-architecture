@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.five;
+/*package com.hexaclean.arc.demo.lab.five;
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
@@ -34,10 +34,9 @@ public class DomainRing_Task_5_1 extends BaseExerciseTest {
         assertThat(vehicle.getVehicleMasterData().vehicleModel().modelDescription()).isEqualTo(expectedVehicle.getVehicleMasterData().vehicleModel().modelDescription());
         assertThat(vehicle.getVehicleMasterData().mileageUnit()).isEqualTo(expectedVehicle.getVehicleMasterData().mileageUnit());
         assertThat(vehicle.getVehicleMasterData().serialNumber()).isEqualTo(expectedVehicle.getVehicleMasterData().serialNumber());
-        //assertThat(vehicle.isHas2GSupport()).isFalse();
         assertThat(vehicle.getVin()).isEqualTo(expectedVehicle.getVin());
         assertThat(vehicle.getVehicleMotionData().licensePlate()).isEqualTo(expectedVehicle.getVehicleMotionData().licensePlate());
         assertThat(vehicle.getVehicleMotionData().mileage()).isEqualTo(expectedVehicle.getVehicleMotionData().mileage());
     }
 
-}
+}*/

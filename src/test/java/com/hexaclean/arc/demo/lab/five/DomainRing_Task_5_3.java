@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.five;
+/*package com.hexaclean.arc.demo.lab.five;
 
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
@@ -35,4 +35,4 @@ public class DomainRing_Task_5_3 extends BaseExerciseTest {
         assertThat(vehicle.getVin()).isEqualTo(vin);
         assertThat(vehicle.isHas2GSupport()).isFalse();
     }
-}
+}*/

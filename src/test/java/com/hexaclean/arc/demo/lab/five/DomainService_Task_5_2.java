@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.five;
+/*package com.hexaclean.arc.demo.lab.five;
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
@@ -43,4 +43,4 @@ public class DomainService_Task_5_2 extends BaseExerciseTest {
         return new VehicleCommandService(vehicleCommand).update(vehicleToUpdate.getVin(), vehicleToUpdate.getVehicleMotionData());
     }
 
-}
+}*/

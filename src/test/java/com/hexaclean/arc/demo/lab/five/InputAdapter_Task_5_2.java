@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.five;
+/*package com.hexaclean.arc.demo.lab.five;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleController;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleToVehicleResourceMapperImpl;
@@ -49,4 +49,4 @@ public class InputAdapter_Task_5_2 extends BaseExerciseTest {
         return new VehicleController(vehicleQuery, new VehicleToVehicleResourceMapperImpl(), vehicleCommand).updateVehicle(vehicleToSave.getVin().value(), createExpectedVehicleMotionDataResource());
     }
 
-}
+}*/

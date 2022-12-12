@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.five;
+/*package com.hexaclean.arc.demo.lab.five;
 
 import com.hexaclean.arc.demo.lab.BaseArchUnitExerciseTest;
 import com.tngtech.archunit.lang.ArchRule;
@@ -55,4 +55,4 @@ public class DomainRing_Task_5_2 extends BaseArchUnitExerciseTest {
         rule.check(classes);
     }
 
-}
+}*/
