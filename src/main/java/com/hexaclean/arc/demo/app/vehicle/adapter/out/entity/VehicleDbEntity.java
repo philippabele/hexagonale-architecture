@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity;
+package com.hexaclean.arc.demo.app.vehicle.adapter.out.entity;
 
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
@@ -8,7 +8,6 @@ public class VehicleDbEntity {
 
     @Column("ID")
     private String vin;
-
 
     public String getVin() {
         return vin;

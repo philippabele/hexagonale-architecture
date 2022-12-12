@@ -1,7 +1,7 @@
 package com.hexaclean.arc.demo.lab.three;
 
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

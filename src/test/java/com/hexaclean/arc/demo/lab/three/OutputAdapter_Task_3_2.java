@@ -1,7 +1,7 @@
 package com.hexaclean.arc.demo.lab.three;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.VehicleRepository;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.VehicleToVehicleDbEntityMapper;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.VehicleRepository;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.VehicleToVehicleDbEntityMapper;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;

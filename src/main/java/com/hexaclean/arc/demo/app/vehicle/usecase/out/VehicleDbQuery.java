@@ -6,5 +6,4 @@ import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 public interface VehicleDbQuery {
     Vehicle findVehicleByVin(Vin vin);
 
-    Vehicle findVehicleByLicensePlate(LicensePlate licensePlate);
 }

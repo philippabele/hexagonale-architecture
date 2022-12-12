@@ -1,6 +1,6 @@
-package com.hexaclean.arc.demo.app.vehicle.adapter.out.db;
+package com.hexaclean.arc.demo.app.vehicle.adapter.out;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
 import org.springframework.stereotype.Component;
 

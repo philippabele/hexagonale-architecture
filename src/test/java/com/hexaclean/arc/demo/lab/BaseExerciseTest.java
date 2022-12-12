@@ -1,10 +1,7 @@
 package com.hexaclean.arc.demo.lab;
 
-import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.EquipmentResource;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.EquipmentDto;
-import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.VehicleDataDto;
+import com.hexaclean.arc.demo.app.vehicle.adapter.out.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
 
 import java.util.ArrayList;
@@ -46,81 +43,19 @@ public abstract class BaseExerciseTest {
     protected VehicleDbEntity createExpectedVehicleDbEntity() {
         VehicleDbEntity dbEntity = new VehicleDbEntity();
         dbEntity.setVin(VIN);
-        dbEntity.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
-        dbEntity.setMilage(MILEAGE_TEST_VALUE);
         return dbEntity;
     }
 
     protected VehicleResource createExpectedVehicleResource() {
         VehicleResource resource = new VehicleResource();
         resource.setVin(VIN);
-        resource.setLicensePlate(LICENSE_PLATE_TEST_VALUE);
-        resource.setMileage(Double.valueOf(MILEAGE_TEST_VALUE));
-        resource.setVehicleModelType(VEHICLE_MODEL_TYPE_TEST_VALUE);
-        resource.setVehicleModelName(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE);
-        resource.setMileageUnit(MileageUnitValue.KM.toString());
         resource.setVin(VIN);
-        resource.setSerialNumber(SERIAL_NUMBER_TEST_VALUE);
-        resource.setEquipmentList(createEquipmentListResource());
         return resource;
-    }
-
-    protected VehicleDataDto createExpectedVehicleDto() {
-        VehicleDataDto vehicleDto = new VehicleDataDto();
-        vehicleDto.setBaumuster(VEHICLE_MODEL_TYPE_TEST_VALUE);
-        vehicleDto.setBaumusterDescription(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE);
-        vehicleDto.setMileageUnit(MileageUnitValue.KM.toString());
-        vehicleDto.setVinOrFin(VIN);
-        vehicleDto.setSerialNumber(SERIAL_NUMBER_TEST_VALUE);
-        return vehicleDto;
     }
 
     protected Vehicle createExpectedVehicle() {
-        Vehicle vehicle = new Vehicle(new Vin(VIN),
-                createExpectedVehicleMotionData());
-        vehicle.addVehicleMasterData(createExpectedVehicleMasterData());
+        Vehicle vehicle = new Vehicle(new Vin(VIN));
         return vehicle;
     }
 
-    protected VehicleMotionData createExpectedVehicleMotionData() {
-        return new VehicleMotionData(new LicensePlate(LICENSE_PLATE_TEST_VALUE),
-                new Mileage(MILEAGE_TEST_VALUE));
-    }
-
-    protected VehicleMasterData createExpectedVehicleMasterData() {
-        return new VehicleMasterData(createEquipmentList(),
-                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
-                new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM));
-    }
-
-    private List<Equipment> createEquipmentList() {
-        List<Equipment> list = new ArrayList<>();
-        list.add(new Equipment(new EquipmentCode("CU897"), "Live Traffic Assistent"));
-        list.add(new Equipment(new EquipmentCode("DK564"), "Visual Park Assistent"));
-        list.add(new Equipment(new EquipmentCode("KL457"), "Sports Chassis M Deluxe"));
-        return list;
-    }
-
-    private List<EquipmentDto> createEquipmentListDto() {
-        List<EquipmentDto> list = new ArrayList<>();
-        list.add(new EquipmentDto("CU897", "Live Traffic Assistent"));
-        list.add(new EquipmentDto("DK564", "Visual Park Assistent"));
-        list.add(new EquipmentDto("KL457", "Sports Chassis M Deluxe"));
-        return list;
-    }
-
-    private List<EquipmentResource> createEquipmentListResource() {
-        List<EquipmentResource> list = new ArrayList<>();
-        list.add(createEquipmentResource("CU897", "Live Traffic Assistent"));
-        list.add(createEquipmentResource("DK564", "Visual Park Assistent"));
-        list.add(createEquipmentResource("KL457", "Sports Chassis M Deluxe"));
-        return list;
-    }
-
-    private EquipmentResource createEquipmentResource(String code, String description) {
-        EquipmentResource resource = new EquipmentResource();
-        resource.setCode(code);
-        resource.setDescription(description);
-        return resource;
-    }
 }

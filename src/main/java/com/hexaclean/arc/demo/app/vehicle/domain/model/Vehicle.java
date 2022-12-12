@@ -1,28 +1,16 @@
 package com.hexaclean.arc.demo.app.vehicle.domain.model;
 
-import com.hexaclean.arc.demo.common.mapstruct.Default;
-
 import java.util.Objects;
 
 public class Vehicle {
 
     private Vin vin;
-    private VehicleMotionData vehicleMotionData;
-    private VehicleMasterData vehicleMasterData;
 
-    public Vehicle(Vin vin, VehicleMotionData vehicleMotionData) {
+    public Vehicle(Vin vin) {
         this.vin = vin;
-        this.vehicleMotionData = vehicleMotionData;
-        if (this.vin == null || this.vehicleMotionData == null) {
-            throw new IllegalStateException("one or more of the properties vin or motion data are null!");
+        if (this.vin == null) {
+            throw new IllegalStateException("Vin should not be null");
         }
-    }
-
-    @Default
-    public Vehicle(Vin vin, VehicleMotionData vehicleMotionData, VehicleMasterData vehicleMasterData) {
-        this(vin, vehicleMotionData);
-        this.vehicleMasterData = vehicleMasterData;
-        validateVehicleMasterData();
     }
 
     @Override
@@ -42,22 +30,4 @@ public class Vehicle {
         return vin;
     }
 
-    public VehicleMotionData getVehicleMotionData() {
-        return vehicleMotionData;
-    }
-
-    public VehicleMasterData getVehicleMasterData() {
-        return vehicleMasterData;
-    }
-
-    public void addVehicleMasterData(VehicleMasterData vehicleMasterData) {
-        this.vehicleMasterData = vehicleMasterData;
-        validateVehicleMasterData();
-    }
-
-    private void validateVehicleMasterData() {
-        if (this.vehicleMasterData == null) {
-            throw new IllegalStateException("vehicle master data should not be null!");
-        }
-    }
 }
