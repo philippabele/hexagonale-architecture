@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.three;
+/*package com.hexaclean.arc.demo.lab.three;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleController;
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleToVehicleResourceMapperImpl;
@@ -28,4 +28,4 @@ public class InputAdapter_Task_3_3 extends BaseExerciseTest {
         return new VehicleController(vehicleQuery, new VehicleToVehicleResourceMapperImpl());
     }
 
-}
+}*/

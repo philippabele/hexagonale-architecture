@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.three;
+/*package com.hexaclean.arc.demo.lab.three;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.VehicleRepository;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
@@ -26,4 +26,4 @@ public class OutputAdapter_Task_3_2 extends BaseExerciseTest {
         return new VehicleRepository(new VehicleToVehicleDbEntityMapper());
     }
 
-}
+}*/

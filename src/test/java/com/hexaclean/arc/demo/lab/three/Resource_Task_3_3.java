@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.three;
+/*package com.hexaclean.arc.demo.lab.three;
 
 
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
@@ -23,4 +23,4 @@ public class Resource_Task_3_3 extends BaseExerciseTest {
         return vehicle;
     }
 
-}
+}*/

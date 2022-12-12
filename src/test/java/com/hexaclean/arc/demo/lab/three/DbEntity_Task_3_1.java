@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.three;
+/*package com.hexaclean.arc.demo.lab.three;
 
 
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
@@ -22,4 +22,4 @@ public class DbEntity_Task_3_1 extends BaseExerciseTest {
         dbEntity.setVin(VIN);
         return dbEntity;
     }
-}
+}*/

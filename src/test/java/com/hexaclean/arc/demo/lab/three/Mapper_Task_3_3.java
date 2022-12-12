@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.three;
+/*package com.hexaclean.arc.demo.lab.three;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.in.VehicleToVehicleResourceMapperImpl;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
@@ -29,3 +29,4 @@ public class Mapper_Task_3_3 extends BaseExerciseTest {
     }
 
 }
+*/

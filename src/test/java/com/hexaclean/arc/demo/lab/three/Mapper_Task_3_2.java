@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.three;
+/*package com.hexaclean.arc.demo.lab.three;
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
@@ -26,4 +26,4 @@ public class Mapper_Task_3_2 extends BaseExerciseTest {
         dbEntity.setVin(VIN);
         return dbEntity;
     }
-}
+}*/
