@@ -1,6 +1,6 @@
 package com.hexaclean.arc.demo.app.lab.one;
 
-import com.hexaclean.arc.demo.app.lab.BaseExerciseTest;
+/*import com.hexaclean.arc.demo.app.lab.BaseExerciseTest;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vin;
 import org.junit.jupiter.api.Test;
@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class DomainRing_Task_1_1 extends BaseExerciseTest {
 
     @Test
-    void should_throw_illegal_state_exception_due_to_invalid_vin() {
+    void should_throw_exception_due_to_invalid_vin() {
         assertThrows(Exception.class, () -> new Vehicle(new Vin("hgjhgkjhkhkhjh")));
     }
 
     @Test
-    void should_throw_illegal_state_exception_due_to_null_for_vin() {
+    void should_throw_exception_due_to_null_for_vin() {
         assertThrows(Exception.class, () -> new Vehicle(null));
     }
 
@@ -28,4 +28,4 @@ public class DomainRing_Task_1_1 extends BaseExerciseTest {
         assertThat(vehicle.getVin()).isEqualTo(vin);
     }
 
-}
+}*/

@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.app.lab.one;
+/*package com.hexaclean.arc.demo.app.lab.one;
 
 import com.hexaclean.arc.demo.app.lab.BaseExerciseTest;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
@@ -17,4 +17,4 @@ public class DomainRing_Task_1_2 extends BaseExerciseTest {
         assertThat(vehicle).isEqualTo(new Vehicle(new Vin(VIN)));
     }
 
-}
+}*/
