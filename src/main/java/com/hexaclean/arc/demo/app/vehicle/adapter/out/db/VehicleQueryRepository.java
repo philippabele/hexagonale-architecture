@@ -26,11 +26,6 @@ public class VehicleQueryRepository implements VehicleDbQuery {
         return mapper.mapVehicleDbEntityToVehicle(vehicleDbEntity);
     }
 
-    @Override
-    public Vehicle findVehicleByLicensePlate(LicensePlate licensePlate) {
-        return null;
-    }
-
     private VehicleDbEntity findVehicleDbEntity(Vin vin) {
         VehicleDbEntity dbEntity = new VehicleDbEntity();
         dbEntity.setVin(VIN);
