@@ -24,7 +24,7 @@ public class OutputAdapter_Task_6_2 extends BaseExerciseTest {
         Vehicle vehicle = new VehicleModuleClient(findVehicleByLicensePlate, new VehicleToOriginVehicleMapper())
                 .fetch(new com.hexaclean.arc.demo.app.garage.order.domain.model.vehicle.LicensePlate(LICENSE_PLATE_TEST_VALUE));
         com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle expectedVehicle = createExpectedVehicle();
-        assertThat(vehicle.vin().value()).isEqualTo(expectedVehicle.getVin().value());
+        assertThat(vehicle.mileage()).isEqualTo(expectedVehicle.getVehicleMotionData().mileage().value());
         assertThat(vehicle.licencePlate().value()).isEqualTo(expectedVehicle.getVehicleMotionData().licensePlate().value());
     }
 
