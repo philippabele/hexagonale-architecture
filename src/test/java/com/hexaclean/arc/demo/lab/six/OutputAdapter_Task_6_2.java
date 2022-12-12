@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.six;
+/*package com.hexaclean.arc.demo.lab.six;
 
 import com.hexaclean.arc.demo.app.garage.order.adapter.out.vehicle.VehicleModuleClient;
 import com.hexaclean.arc.demo.app.garage.order.adapter.out.vehicle.VehicleToOriginVehicleMapper;
@@ -28,4 +28,4 @@ public class OutputAdapter_Task_6_2 extends BaseExerciseTest {
         assertThat(vehicle.licencePlate().value()).isEqualTo(expectedVehicle.getVehicleMotionData().licensePlate().value());
     }
 
-}
+}*/

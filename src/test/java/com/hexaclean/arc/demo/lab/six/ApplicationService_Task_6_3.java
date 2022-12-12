@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.six;
+/*package com.hexaclean.arc.demo.lab.six;
 
 
 import com.hexaclean.arc.demo.app.parts.catalogue.appservice.ExplosionChartApplicationService;
@@ -48,3 +48,4 @@ public class ApplicationService_Task_6_3 extends BaseExerciseTest {
         assertThat(vehicle.isHas2GSupport()).isEqualTo(expectedVehicle.has2GSupport());
     }
 }
+*/

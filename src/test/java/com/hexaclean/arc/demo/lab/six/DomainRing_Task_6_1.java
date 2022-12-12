@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.six;
+/*package com.hexaclean.arc.demo.lab.six;
 
 import com.hexaclean.arc.demo.app.vehicle.domain.model.LicensePlate;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
@@ -42,4 +42,4 @@ public class DomainRing_Task_6_1 extends BaseExerciseTest {
         assertThat(vehicle.getVehicleMotionData().mileage()).isEqualTo(expectedVehicle.getVehicleMotionData().mileage());
     }
 
-}
+}*/

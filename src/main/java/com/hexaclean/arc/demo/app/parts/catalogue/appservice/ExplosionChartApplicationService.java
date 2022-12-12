@@ -30,6 +30,7 @@ public class ExplosionChartApplicationService implements ExplosionChartQuery {
 
     @Override
     public ExplosionChart read(PartsCategoryCode partsCategoryCode, String vin) {
+
         //Add ypur code to implement the application service pattern here
 
         ExplosionChart explosionChart = fetchExplosionChart.fetch(partsCategoryCode, vehicle.vehicleModel(), vehicle.has2GSupport());
