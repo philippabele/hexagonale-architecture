@@ -18,7 +18,6 @@ public interface VehicleToVehicleResourceMapper {
     @Mapping(source = "vehicleModelType", target = "vehicleMasterData.vehicleModel.modelType")
     @Mapping(source = "serialNumber", target = "vehicleMasterData.serialNumber.value")
     @Mapping(source = "vin", target = "vin.value")
-    //@Mapping(source = "has2GSupport", target = "has2GSupport")
     @Mapping(source = "equipmentList", target = "vehicleMasterData.equipmentList")
     Vehicle mapVehicleResourceToVehicle(VehicleResource resource);
 
@@ -42,7 +41,6 @@ public interface VehicleToVehicleResourceMapper {
     @Mapping(target = "vehicleModelType", source = "vehicleMasterData.vehicleModel.modelType")
     @Mapping(target = "serialNumber", source = "vehicleMasterData.serialNumber.value")
     @Mapping(target = "vin", source = "vin.value")
-    @Mapping(target = "has2GSupport", source = "has2GSupport")
     @Mapping(target = "equipmentList", source = "vehicleMasterData.equipmentList")
     VehicleResource mapVehicleToVehicleResource(Vehicle entity);
 

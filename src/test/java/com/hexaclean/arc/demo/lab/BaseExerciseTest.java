@@ -6,7 +6,6 @@ import com.hexaclean.arc.demo.app.vehicle.adapter.in.resource.VehicleResource;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.db.entity.VehicleDbEntity;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.EquipmentDto;
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.master.data.dto.VehicleDataDto;
-import com.hexaclean.arc.demo.app.vehicle.domain.dto.VehicleMasterDataDomainDto;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.*;
 
 import java.util.ArrayList;
@@ -130,23 +129,6 @@ public abstract class BaseExerciseTest {
                 new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
                 new SerialNumber(SERIAL_NUMBER_TEST_VALUE), new MileageUnit(MileageUnitValue.KM), createEquipmentListHas2G());
     }
-
-    protected VehicleMasterDataDomainDto createExpectedVehicleMasterDataDomainDto() {
-        return new VehicleMasterDataDomainDto(
-                EQUIPMENT_LIST,
-                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
-                new MileageUnit(MileageUnitValue.KM),
-                new SerialNumber(SERIAL_NUMBER_TEST_VALUE));
-    }
-
-    protected VehicleMasterDataDomainDto createExpectedVehicleMasterDataDomainDtoHas2G() {
-        return new VehicleMasterDataDomainDto(
-                Arrays.asList("CU897", "DK564", "GS200"),
-                new VehicleModel(VEHICLE_MODEL_DESCRIPTION_TEST_VALUE, VEHICLE_MODEL_TYPE_TEST_VALUE),
-                new MileageUnit(MileageUnitValue.KM),
-                new SerialNumber(SERIAL_NUMBER_TEST_VALUE));
-    }
-
 
     private List<EquipmentDto> createEquipmentListDto() {
         List<EquipmentDto> list = new ArrayList<>();
