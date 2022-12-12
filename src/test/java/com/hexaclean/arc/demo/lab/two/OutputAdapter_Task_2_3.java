@@ -1,4 +1,4 @@
-package com.hexaclean.arc.demo.lab.two;
+/*package com.hexaclean.arc.demo.lab.two;
 
 import com.hexaclean.arc.demo.app.vehicle.adapter.out.VehicleRepository;
 import com.hexaclean.arc.demo.app.vehicle.domain.model.Vehicle;
@@ -26,4 +26,4 @@ public class OutputAdapter_Task_2_3 extends BaseExerciseTest {
         return new VehicleRepository();
     }
 
-}
+}*/
