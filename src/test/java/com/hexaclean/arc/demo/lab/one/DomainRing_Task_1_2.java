@@ -2,6 +2,7 @@ package com.hexaclean.arc.demo.lab.one;
 
 import com.hexaclean.arc.demo.app.vehicle.domain.service.VehicleService;
 import com.hexaclean.arc.demo.lab.BaseExerciseTest;
+import com.hexaclean.arc.demo.vehicle.domain.model.Vehicle;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
